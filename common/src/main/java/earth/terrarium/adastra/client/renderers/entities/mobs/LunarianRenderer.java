@@ -14,6 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class LunarianRenderer extends MobRenderer<Lunarian, LunarianModel<Lunarian>> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/lunarian/lunarian.png");
     public static final ResourceLocation FARMER_TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/lunarian/farmer_lunarian.png");
     public static final ResourceLocation FISHERMAN_TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/lunarian/fisherman_lunarian.png");

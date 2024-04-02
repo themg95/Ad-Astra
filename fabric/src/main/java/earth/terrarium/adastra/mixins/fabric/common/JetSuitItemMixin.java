@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.Mixin;
 @SuppressWarnings("DataFlowIssue")
 @Mixin(JetSuitItem.class)
 public abstract class JetSuitItemMixin implements FabricElytraItem {
+
     @Override
     public boolean useCustomElytra(LivingEntity entity, ItemStack chestStack, boolean tickElytra) {
         //noinspection DataFlowIssue

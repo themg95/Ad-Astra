@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.List;
 
 public record NasaWorkbenchDisplay(NasaWorkbenchRecipe recipe) implements Display {
+
     public NasaWorkbenchDisplay(RecipeHolder<NasaWorkbenchRecipe> recipe) {
         this(recipe.value());
     }

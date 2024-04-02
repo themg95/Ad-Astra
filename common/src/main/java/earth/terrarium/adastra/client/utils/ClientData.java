@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class ClientData {
+
     @Nullable
     private static PlanetData localData;
 

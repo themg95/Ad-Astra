@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.function.BiFunction;
 
 public abstract class Vehicle extends Entity implements PlayerRideable, ExtraDataMenuProvider, MultipartEntity, HasCustomInventoryScreen {
+
     private int lerpSteps;
     private double lerpX;
     private double lerpY;

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompressingCategory implements DisplayCategory<CompressingDisplay> {
+
     public static final CategoryIdentifier<CompressingDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "compressing");
 
     @Override

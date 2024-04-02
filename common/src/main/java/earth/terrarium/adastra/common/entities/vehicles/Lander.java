@@ -20,6 +20,7 @@ import net.minecraft.world.phys.Vec3;
 import org.joml.Vector3f;
 
 public class Lander extends Vehicle {
+
     private float speed;
     private float angle;
     public boolean startedRocketSound;

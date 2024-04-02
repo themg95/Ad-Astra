@@ -8,6 +8,7 @@ import net.minecraft.world.inventory.Slot;
 import org.jetbrains.annotations.Nullable;
 
 public class ImageSlot extends Slot {
+
     private final ResourceLocation icon;
 
     public ImageSlot(Container container, int slot, int xPosition, int yPosition, ResourceLocation icon) {

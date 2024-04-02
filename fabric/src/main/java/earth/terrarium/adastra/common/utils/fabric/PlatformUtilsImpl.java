@@ -12,6 +12,7 @@ import net.minecraft.world.level.portal.PortalInfo;
 import java.util.function.Supplier;
 
 public class PlatformUtilsImpl {
+
     public static Entity teleportToDimension(Entity entity, ServerLevel level, PortalInfo portalInfo) {
         return FabricDimensions.teleport(entity, level, portalInfo);
     }

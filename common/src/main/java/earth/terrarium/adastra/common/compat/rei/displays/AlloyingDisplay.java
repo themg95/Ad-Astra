@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.List;
 
 public record AlloyingDisplay(AlloyingRecipe recipe) implements Display {
+
     public AlloyingDisplay(RecipeHolder<AlloyingRecipe> recipe) {
         this(recipe.value());
     }

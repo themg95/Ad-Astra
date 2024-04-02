@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.decoration.PaintingVariant;
 
 public final class ModPaintingVariantTags {
+
     public static final TagKey<PaintingVariant> SPACE_PAINTINGS = tag("space_paintings");
 
     private static TagKey<PaintingVariant> tag(String name) {

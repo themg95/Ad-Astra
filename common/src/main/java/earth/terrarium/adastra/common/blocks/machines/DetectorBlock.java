@@ -25,6 +25,7 @@ import java.util.Locale;
 
 @SuppressWarnings("deprecation")
 public class DetectorBlock extends MachineBlock implements Wrenchable {
+
     public static final BooleanProperty INVERTED = BooleanProperty.create("inverted");
     public static final EnumProperty<DetectionType> DETECTION_TYPE = EnumProperty.create("detection_type", DetectionType.class);
 

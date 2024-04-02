@@ -4,6 +4,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 
 public class ConstantComponents {
+
     public static final Component TOGGLE_SUIT_FLIGHT_KEY = Component.translatable("key.ad_astra.toggle_suit_flight");
     public static final Component OPEN_RADIO_KEY = Component.translatable("key.ad_astra.open_radio");
 

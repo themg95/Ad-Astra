@@ -16,6 +16,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class WrenchItem extends Item {
+
     public WrenchItem(Properties properties) {
         super(properties);
     }

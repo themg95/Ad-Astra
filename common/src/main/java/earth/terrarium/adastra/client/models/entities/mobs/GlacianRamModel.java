@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class GlacianRamModel<T extends GlacianRam> extends QuadrupedModel<T> {
+
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(AdAstra.MOD_ID, "glacian_ram"), "main");
     private float headXRot;
 

@@ -8,6 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import java.util.List;
 
 public class DimensionRenderingUtils {
+
     public static final ResourceLocation BACKLIGHT = new ResourceLocation(AdAstra.MOD_ID, "textures/environment/backlight.png");
 
     public static final ResourceLocation SUN = new ResourceLocation(AdAstra.MOD_ID, "textures/environment/sun.png");

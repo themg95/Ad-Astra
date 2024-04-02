@@ -16,6 +16,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 
 public abstract class ModCodecProvider<T> implements DataProvider {
+
     private final PackOutput.PathProvider pathProvider;
     private final Codec<T> codec;
 

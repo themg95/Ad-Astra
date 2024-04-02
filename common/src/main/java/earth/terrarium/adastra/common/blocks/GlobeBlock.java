@@ -37,6 +37,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class GlobeBlock extends BasicEntityBlock implements SimpleWaterloggedBlock {
+
     public static final MapCodec<GlobeBlock> CODEC = simpleCodec(GlobeBlock::new);
     public static final VoxelShape SHAPE = Shapes.box(0.2, 0, 0.2, 0.8, 1, 0.8);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;

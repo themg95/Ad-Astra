@@ -1,6 +1,7 @@
 package earth.terrarium.adastra.common.world.biome;
 
 public class CellularNoise {
+
     // From FastNoiseLite
     private static final float[] RANDOM_VECTORS = {
         -0.2700222198f, -0.9628540911f, 0.3863092627f, -0.9223693152f, 0.04444859006f, -0.999011673f, -0.5992523158f, -0.8005602176f, -0.7819280288f, 0.6233687174f, 0.9464672271f, 0.3227999196f, -0.6514146797f, -0.7587218957f, 0.9378472289f, 0.347048376f,

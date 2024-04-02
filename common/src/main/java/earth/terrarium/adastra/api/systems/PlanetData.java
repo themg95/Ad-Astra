@@ -7,6 +7,7 @@ import java.util.Objects;
  * Data is packed into a single integer for efficient storage and transmission.
  */
 public final class PlanetData {
+
     private static final int OXYGEN_BIT_LENGTH = 1; // boolean
     private static final int TEMPERATURE_BIT_LENGTH = Short.SIZE; // 16-bit signed short
     private static final int GRAVITY_BIT_LENGTH = 15; // unsigned compact float

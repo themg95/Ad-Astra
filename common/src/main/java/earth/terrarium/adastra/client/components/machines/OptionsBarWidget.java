@@ -61,6 +61,7 @@ public class OptionsBarWidget extends ContainerWidget {
     }
 
     public static class Builder {
+
         private final List<LayoutElement> elements = new ArrayList<>();
 
         private Builder() {}

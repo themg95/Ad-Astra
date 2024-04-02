@@ -25,6 +25,7 @@ import net.minecraft.world.level.Level;
 import java.util.Collection;
 
 public class TemperatureApiImpl implements TemperatureApi {
+
     @Override
     public short getTemperature(Level level) {
         return getTemperature(level.dimension());

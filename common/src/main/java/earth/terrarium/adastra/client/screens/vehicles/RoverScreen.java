@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class RoverScreen extends VehicleScreen<RoverMenu, Rover> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/rover.png");
 
     public RoverScreen(RoverMenu menu, Inventory inventory, Component component) {

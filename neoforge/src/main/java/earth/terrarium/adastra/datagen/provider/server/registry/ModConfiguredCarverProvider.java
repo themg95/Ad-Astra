@@ -16,6 +16,7 @@ import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
 import net.minecraft.world.level.levelgen.heightproviders.UniformHeight;
 
 public class ModConfiguredCarverProvider {
+
     public static final ResourceKey<ConfiguredWorldCarver<?>> MOON_CRATER = register("moon_crater");
 
     private static ResourceKey<ConfiguredWorldCarver<?>> register(String name) {

@@ -19,6 +19,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class ModRecipeProvider extends RecipeProvider {
+
     private RecipeOutput output;
 
     public ModRecipeProvider(PackOutput packOutput) {

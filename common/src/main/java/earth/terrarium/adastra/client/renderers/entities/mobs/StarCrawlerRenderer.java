@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class StarCrawlerRenderer extends MobRenderer<StarCrawler, StarCrawlerModel> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/star_crawler.png");
 
     public StarCrawlerRenderer(EntityRendererProvider.Context context) {

@@ -31,6 +31,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 public abstract class ModCustomRecipeProvider extends RecipeProvider {
+
     public static final ResourceLocation SPACE_STATION_STRUCTURE = new ResourceLocation(AdAstra.MOD_ID, "space_station");
     private static RecipeOutput output;
 

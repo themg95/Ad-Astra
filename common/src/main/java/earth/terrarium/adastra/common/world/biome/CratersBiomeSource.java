@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class CratersBiomeSource extends BiomeSource {
+
     public static final Codec<CratersBiomeSource> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
             Biome.CODEC.fieldOf("default_biome").forGetter(source -> source.defaultBiome),
@@ -67,6 +68,7 @@ public class CratersBiomeSource extends BiomeSource {
 
     // Holder<Biome> with depth parameter
     public record DepthBiome(Holder<Biome> biome, Climate.Parameter depth) {
+
         public static final Codec<DepthBiome> CODEC = RecordCodecBuilder.create(instance ->
             instance.group(
                 Biome.CODEC.fieldOf("biome").forGetter(DepthBiome::biome),

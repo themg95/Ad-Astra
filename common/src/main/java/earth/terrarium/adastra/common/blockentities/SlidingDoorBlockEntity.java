@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
 
 public class SlidingDoorBlockEntity extends BlockEntity implements TickableBlockEntity {
+
     private int slideTicks;
     private int lastSlideTicks;
 

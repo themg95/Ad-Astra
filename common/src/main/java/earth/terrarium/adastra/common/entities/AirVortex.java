@@ -17,6 +17,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Set;
 
 public class AirVortex extends Entity {
+
     public static final int LIFE = 600;
 
     @Nullable

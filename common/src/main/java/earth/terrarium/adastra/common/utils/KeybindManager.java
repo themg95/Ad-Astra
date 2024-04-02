@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public final class KeybindManager {
+
     private static final Map<UUID, KeybindManager> PLAYER_KEYS = new HashMap<>();
 
     private boolean jumpDown;

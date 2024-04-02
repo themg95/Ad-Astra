@@ -23,6 +23,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class RadioBlock extends BasicEntityBlock {
+
     public static final MapCodec<RadioBlock> CODEC = simpleCodec(RadioBlock::new);
 
     public static final EightDirectionProperty FACING = EightDirectionProperty.FACING;

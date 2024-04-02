@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class MoglerRenderer extends MobRenderer<Mogler, MoglerModel<Mogler>> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/mogler.png");
 
     public MoglerRenderer(EntityRendererProvider.Context context) {

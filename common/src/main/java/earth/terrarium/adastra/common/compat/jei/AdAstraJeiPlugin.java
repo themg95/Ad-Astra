@@ -20,6 +20,7 @@ import java.util.Objects;
 
 @JeiPlugin
 public class AdAstraJeiPlugin implements IModPlugin {
+
     @Override
     public @NotNull ResourceLocation getPluginUid() {
         return new ResourceLocation(AdAstra.MOD_ID, "jei");

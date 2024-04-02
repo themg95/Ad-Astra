@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class RocketScreen extends VehicleScreen<RocketMenu, Rocket> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/rocket.png");
 
     public RocketScreen(RocketMenu menu, Inventory inventory, Component component) {

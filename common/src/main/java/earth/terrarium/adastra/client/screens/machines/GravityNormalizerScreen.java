@@ -20,6 +20,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class GravityNormalizerScreen extends MachineScreen<GravityNormalizerMenu, GravityNormalizerBlockEntity> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/gravity_normalizer.png");
 
     private double sliderValue;

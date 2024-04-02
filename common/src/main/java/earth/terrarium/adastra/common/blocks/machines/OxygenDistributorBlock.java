@@ -14,6 +14,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
 public class OxygenDistributorBlock extends SidedMachineBlock {
+
     public static final VoxelShape BOTTOM_SHAPE = Shapes.join(
         Block.box(1, 0, 1, 15, 5, 15),
         Block.box(4, 5, 4, 12, 15, 12),

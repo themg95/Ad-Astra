@@ -7,6 +7,7 @@ import earth.terrarium.adastra.common.entities.vehicles.Rocket;
 import net.minecraft.client.Minecraft;
 
 public class SoundUtils {
+
     public static void playRocketSound(Rocket rocket) {
         Minecraft.getInstance().getSoundManager().play(new RocketSoundInstance(rocket));
     }

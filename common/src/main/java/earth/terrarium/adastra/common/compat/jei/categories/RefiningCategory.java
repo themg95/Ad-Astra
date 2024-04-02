@@ -23,6 +23,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public record RefiningCategory(IGuiHelper guiHelper) implements IRecipeCategory<RefiningRecipe> {
+
     public static final ResourceLocation ID = new ResourceLocation(AdAstra.MOD_ID, "refining");
     public static final RecipeType<RefiningRecipe> RECIPE = new RecipeType<>(ID, RefiningRecipe.class);
 

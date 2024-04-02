@@ -21,6 +21,7 @@ public class LargeFlameParticle extends ExplodeParticle {
     }
 
     public static class Provider implements ParticleProvider<SimpleParticleType> {
+
         private final SpriteSet sprites;
 
         public Provider(SpriteSet sprites) {

@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class ZombifiedPygroRenderer extends MobRenderer<ZombifiedPygro, ZombifiedPygroModel> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/zombified_pygro.png");
 
     public ZombifiedPygroRenderer(EntityRendererProvider.Context context) {

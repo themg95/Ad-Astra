@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public abstract class ContainerMachineBlockEntity extends MachineBlockEntity implements BasicContainer, WorldlyContainer, ExtraDataMenuProvider, SideConfigurable {
+
     private final List<ConfigurationEntry> sideConfig = new ArrayList<>();
     private final NonNullList<ItemStack> items;
 

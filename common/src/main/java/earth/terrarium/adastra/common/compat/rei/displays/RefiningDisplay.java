@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.List;
 
 public record RefiningDisplay(RefiningRecipe recipe) implements Display {
+
     public RefiningDisplay(RecipeHolder<RefiningRecipe> recipe) {
         this(recipe.value());
     }

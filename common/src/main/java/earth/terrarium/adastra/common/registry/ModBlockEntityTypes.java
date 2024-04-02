@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 
 @SuppressWarnings("unused")
 public class ModBlockEntityTypes {
+
     public static final ResourcefulRegistry<BlockEntityType<?>> BLOCK_ENTITY_TYPES = ResourcefulRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, AdAstra.MOD_ID);
 
     public static final RegistryEntry<BlockEntityType<CoalGeneratorBlockEntity>> COAL_GENERATOR = BLOCK_ENTITY_TYPES.register(

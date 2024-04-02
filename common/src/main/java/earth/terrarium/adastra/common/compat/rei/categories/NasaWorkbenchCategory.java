@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NasaWorkbenchCategory implements DisplayCategory<NasaWorkbenchDisplay> {
+
     public static final CategoryIdentifier<NasaWorkbenchDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "nasa_workbench");
 
     @Override

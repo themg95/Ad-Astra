@@ -8,6 +8,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class NetheriteSpaceSuitMaterial implements ArmorMaterial {
+
     public static final ArmorMaterial MATERIAL = new NetheriteSpaceSuitMaterial();
 
     private static final int[] BASE_DURABILITY = new int[]{13, 15, 16, 11};

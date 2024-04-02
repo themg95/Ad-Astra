@@ -46,6 +46,7 @@ import java.util.*;
 
 @SuppressWarnings("deprecation")
 public class PipeBlock extends BasicEntityBlock implements SimpleWaterloggedBlock, Wrenchable, TransferablePipe {
+
     public static final MapCodec<PipeBlock> CODEC = RecordCodecBuilder.mapCodec(
         instance -> instance.group(
             Codec.LONG.fieldOf("transfer_rate").forGetter(PipeBlock::transferRate),

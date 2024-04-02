@@ -18,6 +18,7 @@ import net.minecraft.world.entity.HumanoidArm;
 import org.joml.Matrix4f;
 
 public class Ti69Renderer {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/ti-69/ti-69.png");
     public static final ResourceLocation SCREEN = new ResourceLocation(AdAstra.MOD_ID, "textures/ti-69/screen.png");
     public static final ResourceLocation OVERLAY = new ResourceLocation(AdAstra.MOD_ID, "textures/ti-69/overlay.png");
@@ -96,6 +97,7 @@ public class Ti69Renderer {
 
     @FunctionalInterface
     public interface ArmRenderer {
+
         void renderPlayerArm(PoseStack poseStack, MultiBufferSource buffer, int combinedLight, float equippedProgress, float swingProgress, HumanoidArm side);
     }
 }

@@ -13,6 +13,7 @@ import java.util.List;
 
 @REIPluginCompatIgnore
 public record CompressingDisplay(CompressingRecipe recipe) implements Display {
+
     public CompressingDisplay(RecipeHolder<CompressingRecipe> recipe) {
         this(recipe.value());
     }

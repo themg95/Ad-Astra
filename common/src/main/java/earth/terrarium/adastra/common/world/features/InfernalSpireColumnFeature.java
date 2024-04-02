@@ -20,6 +20,7 @@ import org.jetbrains.annotations.Nullable;
  * This is a modified version of the BasaltColumnFeature which uses infernal spire blocks instead of basalt.
  */
 public class InfernalSpireColumnFeature extends Feature<ColumnFeatureConfiguration> {
+
     private static final ImmutableList<Block> CANNOT_PLACE_ON = ImmutableList.of(
         Blocks.LAVA,
         Blocks.BEDROCK,

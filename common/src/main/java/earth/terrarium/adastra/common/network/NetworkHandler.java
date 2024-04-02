@@ -6,6 +6,7 @@ import earth.terrarium.adastra.common.network.packets.*;
 import net.minecraft.resources.ResourceLocation;
 
 public final class NetworkHandler {
+
     public static final Network CHANNEL = new Network(new ResourceLocation(AdAstra.MOD_ID, "main"), 1);
 
     public static void init() {

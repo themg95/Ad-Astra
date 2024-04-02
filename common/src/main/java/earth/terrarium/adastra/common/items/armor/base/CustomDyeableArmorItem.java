@@ -5,6 +5,7 @@ import net.minecraft.world.item.DyeableArmorItem;
 import net.minecraft.world.item.ItemStack;
 
 public class CustomDyeableArmorItem extends DyeableArmorItem {
+
     public CustomDyeableArmorItem(ArmorMaterial armorMaterial, Type type, Properties properties) {
         super(armorMaterial, type, properties);
     }

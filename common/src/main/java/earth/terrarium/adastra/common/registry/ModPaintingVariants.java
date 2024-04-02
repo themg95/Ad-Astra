@@ -9,6 +9,7 @@ import net.minecraft.world.entity.decoration.PaintingVariant;
 
 @SuppressWarnings("unused")
 public class ModPaintingVariants {
+
     public static final ResourcefulRegistry<PaintingVariant> PAINTING_VARIANTS = ResourcefulRegistries.create(BuiltInRegistries.PAINTING_VARIANT, AdAstra.MOD_ID);
 
     public static final RegistryEntry<PaintingVariant> MERCURY = PAINTING_VARIANTS.register("mercury", () -> new PaintingVariant(16, 16));

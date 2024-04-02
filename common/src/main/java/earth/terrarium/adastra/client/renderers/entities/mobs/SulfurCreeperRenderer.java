@@ -13,6 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class SulfurCreeperRenderer extends MobRenderer<SulfurCreeper, SulfurCreeperModel<SulfurCreeper>> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/sulfur_creeper.png");
 
     public SulfurCreeperRenderer(EntityRendererProvider.Context context) {

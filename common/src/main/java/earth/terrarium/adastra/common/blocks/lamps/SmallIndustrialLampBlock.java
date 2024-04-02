@@ -10,6 +10,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class SmallIndustrialLampBlock extends IndustrialLampBlock {
+
     public static final VoxelShape NORTH_SHAPE = Shapes.join(
         Block.box(3, 3, 14, 13, 13, 16),
         Block.box(4, 4, 8, 12, 12, 14), BooleanOp.OR);

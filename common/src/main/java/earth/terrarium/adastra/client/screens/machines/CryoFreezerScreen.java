@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class CryoFreezerScreen extends MachineScreen<CryoFreezerMenu, CryoFreezerBlockEntity> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/cryo_freezer.png");
     public static final ResourceLocation CRYO_SLOT = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/slots/cryo.png");
 

@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
 
 public final class ModFluidTags {
+
     public static final TagKey<Fluid> OXYGEN = tag("oxygen");
     public static final TagKey<Fluid> HYDROGEN = tag("hydrogen");
     public static final TagKey<Fluid> OIL = tag("oil");

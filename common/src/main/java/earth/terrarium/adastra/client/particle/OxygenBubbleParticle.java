@@ -5,6 +5,7 @@ import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
 public class OxygenBubbleParticle extends TextureSheetParticle {
+
     protected OxygenBubbleParticle(ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
         this.setSize(0.02f, 0.02f);
@@ -43,6 +44,7 @@ public class OxygenBubbleParticle extends TextureSheetParticle {
     }
 
     public static class Provider implements ParticleProvider<SimpleParticleType> {
+
         private final SpriteSet sprites;
 
         public Provider(SpriteSet sprites) {

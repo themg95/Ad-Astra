@@ -25,6 +25,7 @@ import net.minecraft.world.level.block.state.properties.AttachFace;
 import org.joml.Quaternionf;
 
 public class GravityNormalizerBlockEntityRenderer implements BlockEntityRenderer<GravityNormalizerBlockEntity> {
+
     public static final ResourceLocation TOP = new ResourceLocation(AdAstra.MOD_ID, "block/gravity_normalizer_top");
     public static final ResourceLocation TOE = new ResourceLocation(AdAstra.MOD_ID, "block/gravity_normalizer_toe");
 
@@ -127,6 +128,7 @@ public class GravityNormalizerBlockEntityRenderer implements BlockEntityRenderer
     }
 
     public static class ItemRenderer extends BlockEntityWithoutLevelRenderer {
+
         public ItemRenderer() {
             super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),
                 Minecraft.getInstance().getEntityModels());

@@ -23,6 +23,7 @@ import net.minecraft.world.phys.Vec3;
 import java.util.Collection;
 
 public class GravityApiImpl implements GravityApi {
+
     @Override
     public float getGravity(Level level) {
         return getGravity(level.dimension());

@@ -41,6 +41,7 @@ import org.joml.Vector3f;
 import java.util.List;
 
 public class Rover extends Vehicle implements PlayerRideable, RadioHolder {
+
     private static final float MAX_SPEED_KM = 50.0f;
     private static final float ACCELERATION_RATE = 0.02f;
 

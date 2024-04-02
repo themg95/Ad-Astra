@@ -21,6 +21,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class RoverRenderer extends EntityRenderer<Rover> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/rover/tier_1_rover.png");
 
     protected final EntityModel<Rover> model;
@@ -52,6 +53,7 @@ public class RoverRenderer extends EntityRenderer<Rover> {
     }
 
     public static class ItemRenderer extends BlockEntityWithoutLevelRenderer {
+
         private EntityModel<?> model;
 
         public ItemRenderer() {

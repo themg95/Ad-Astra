@@ -7,6 +7,7 @@ import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.sounds.SoundSource;
 
 public class RocketSoundInstance extends AbstractTickableSoundInstance {
+
     protected final Vehicle vehicle;
     protected boolean canPlay = true;
 

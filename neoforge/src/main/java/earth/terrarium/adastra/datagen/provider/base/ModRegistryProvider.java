@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRegistryProvider extends DatapackBuiltinEntriesProvider {
+
     private static final RegistrySetBuilder BUILDER = new RegistrySetBuilder()
         .add(Registries.DAMAGE_TYPE, ModDamageTypeProvider::bootstrap)
         .add(Registries.DIMENSION_TYPE, ModDimensionTypeProvider::bootstrap)

@@ -10,6 +10,7 @@ import net.minecraft.world.level.levelgen.carver.CarverConfiguration;
 import net.minecraft.world.level.levelgen.carver.WorldCarver;
 
 public class ModWorldCarvers {
+
     public static final ResourcefulRegistry<WorldCarver<?>> WORLD_CARVERS = ResourcefulRegistries.create(BuiltInRegistries.CARVER, AdAstra.MOD_ID);
 
     public static final RegistryEntry<CraterWorldCarver> CRATER = WORLD_CARVERS.register("crater", () -> new CraterWorldCarver(CarverConfiguration.CODEC.codec()));

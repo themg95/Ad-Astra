@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
 
 public class ModSoundEvents {
+
     public static final ResourcefulRegistry<SoundEvent> SOUND_EVENTS = ResourcefulRegistries.create(BuiltInRegistries.SOUND_EVENT, AdAstra.MOD_ID);
 
     public static final RegistryEntry<SoundEvent> ROCKET_LAUNCH = SOUND_EVENTS.register("rocket_launch", () ->

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class AdAstraEvents {
+
     private static final List<OxygenTickEvent> OXYGEN_TICK_LISTENERS = new ArrayList<>();
     private static final List<EntityOxygenEvent> ENTITY_OXYGEN_LISTENERS = new ArrayList<>();
     private static final List<TemperatureTickEvent> TEMPERATURE_TICK_LISTENERS = new ArrayList<>();
@@ -26,6 +27,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface OxygenTickEvent {
+
         boolean tick(ServerLevel level, LivingEntity entity);
 
         static void register(OxygenTickEvent listener) {
@@ -48,6 +50,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface EntityOxygenEvent {
+
         boolean hasOxygen(Entity entity, boolean hasOxygen);
 
         static void register(EntityOxygenEvent listener) {
@@ -68,6 +71,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface TemperatureTickEvent {
+
         boolean tick(ServerLevel level, LivingEntity entity);
 
         static void register(TemperatureTickEvent listener) {
@@ -90,6 +94,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface HotTemperatureTickEvent {
+
         boolean tick(ServerLevel level, LivingEntity entity);
 
         static void register(HotTemperatureTickEvent listener) {
@@ -111,6 +116,7 @@ public final class AdAstraEvents {
     }
 
     public interface ColdTemperatureTickEvent {
+
         boolean tick(ServerLevel level, LivingEntity entity);
 
         static void register(ColdTemperatureTickEvent listener) {
@@ -133,6 +139,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface GravityTickEvent {
+
         boolean tick(Level level, LivingEntity entity, Vec3 travelVector, BlockPos movementAffectingPos);
 
         static void register(GravityTickEvent listener) {
@@ -155,6 +162,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface EntityGravityEvent {
+
         float getGravity(Entity entity, float gravity);
 
         static void register(EntityGravityEvent listener) {
@@ -175,6 +183,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface ZeroGravityTickEvent {
+
         boolean tick(Level level, LivingEntity entity, Vec3 travelVector, BlockPos movementAffectingPos);
 
         static void register(ZeroGravityTickEvent listener) {
@@ -197,6 +206,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface AcidRainTickEvent {
+
         boolean tick(ServerLevel level, LivingEntity entity);
 
         static void register(AcidRainTickEvent listener) {
@@ -219,6 +229,7 @@ public final class AdAstraEvents {
 
     @FunctionalInterface
     public interface EnvironmentTickEvent {
+
         boolean tick(ServerLevel level, BlockPos pos, BlockState state, short temperature);
 
         static void register(EnvironmentTickEvent listener) {

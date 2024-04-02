@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ClientPlatformUtilsImpl {
+
     public static final Map<Item, ArmorRenderer> ARMOR_RENDERERS = new HashMap<>();
     public static final Map<ResourceKey<Level>, ModDimensionSpecialEffects> DIMENSION_RENDERERS = new HashMap<>();
 

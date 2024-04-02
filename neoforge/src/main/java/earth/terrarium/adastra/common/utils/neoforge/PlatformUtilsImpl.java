@@ -14,6 +14,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class PlatformUtilsImpl {
+
     public static Entity teleportToDimension(Entity entity, ServerLevel level, PortalInfo portalInfo) {
         return entity.changeDimension(level, new AdAstraTeleporter(portalInfo));
     }

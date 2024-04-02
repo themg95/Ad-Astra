@@ -34,6 +34,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class LaunchPadBlock extends Block implements SimpleWaterloggedBlock {
+
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
     public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
     public static final EnumProperty<LaunchPadPartProperty> PART = EnumProperty.create("part", LaunchPadPartProperty.class);

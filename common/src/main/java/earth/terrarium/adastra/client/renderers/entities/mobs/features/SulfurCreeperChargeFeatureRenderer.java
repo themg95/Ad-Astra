@@ -10,6 +10,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class SulfurCreeperChargeFeatureRenderer extends EnergySwirlLayer<SulfurCreeper, SulfurCreeperModel<SulfurCreeper>> {
+
     private static final ResourceLocation SKIN = new ResourceLocation("textures/entity/creeper/creeper_armor.png");
     private final SulfurCreeperModel<SulfurCreeper> model;
 

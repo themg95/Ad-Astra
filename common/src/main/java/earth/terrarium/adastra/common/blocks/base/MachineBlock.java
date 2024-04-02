@@ -24,6 +24,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 @SuppressWarnings("deprecation")
 public class MachineBlock extends BasicEntityBlock {
+
     public static final MapCodec<MachineBlock> CODEC = simpleCodec(MachineBlock::new);
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;

@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ReiEtaWidget extends Widget {
+
     private final Rectangle bounds;
     private final int cookTime;
     private final ResourceLocation texture;

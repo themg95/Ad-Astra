@@ -114,6 +114,7 @@ public final class FloodFill3D {
 
     @FunctionalInterface
     public interface SolidBlockPredicate {
+
         boolean test(Level level, BlockPos pos, BlockState state, LongSet positions, LongArrayFIFOQueue queue, Direction direction);
     }
 }

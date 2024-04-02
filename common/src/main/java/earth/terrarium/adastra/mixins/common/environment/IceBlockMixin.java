@@ -14,6 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(IceBlock.class)
 public abstract class IceBlockMixin {
+
     @Inject(method = "playerDestroy", at = @At("TAIL"))
     private void adastra$playerDestroy(Level level, net.minecraft.world.entity.player.Player player, BlockPos pos, BlockState state, net.minecraft.world.level.block.entity.BlockEntity blockEntity, net.minecraft.world.item.ItemStack stack, CallbackInfo ci) {
         if (TemperatureApi.API.getTemperature(level, pos) < PlanetConstants.FREEZE_TEMPERATURE) {

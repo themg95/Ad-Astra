@@ -12,6 +12,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class FluidBarDrawable implements IDrawable {
+
     private final int mouseX;
     private final int mouseY;
     private final boolean gain;

@@ -22,6 +22,7 @@ import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 
 public class RocketRenderer extends EntityRenderer<Rocket> {
+
     public static final ResourceLocation TIER_1_TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/rocket/tier_1_rocket.png");
     public static final ResourceLocation TIER_2_TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/rocket/tier_2_rocket.png");
     public static final ResourceLocation TIER_3_TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/rocket/tier_3_rocket.png");
@@ -63,6 +64,7 @@ public class RocketRenderer extends EntityRenderer<Rocket> {
     }
 
     public static class ItemRenderer extends BlockEntityWithoutLevelRenderer {
+
         private final ModelLayerLocation layer;
         private final ResourceLocation texture;
 

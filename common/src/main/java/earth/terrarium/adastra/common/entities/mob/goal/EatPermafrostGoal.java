@@ -15,6 +15,7 @@ import java.util.EnumSet;
 import java.util.function.Predicate;
 
 public class EatPermafrostGoal extends Goal {
+
     private static final Predicate<BlockState> PERMAFROST_PREDICATE = BlockStatePredicate.forBlock(ModBlocks.PERMAFROST.get());
     private final Mob mob;
     private final Level level;

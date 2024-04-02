@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import java.util.*;
 
 public class LaunchingDimensionHandler extends SaveHandler {
+
     private final Map<UUID, LaunchedDimensions> data = new HashMap<>();
 
     @Override
@@ -103,6 +104,7 @@ public class LaunchingDimensionHandler extends SaveHandler {
     }
 
     private record LaunchedDimensions(Map<ResourceKey<Level>, GlobalPos> dimensions) {
+
         public LaunchedDimensions() {
             this(new HashMap<>());
         }

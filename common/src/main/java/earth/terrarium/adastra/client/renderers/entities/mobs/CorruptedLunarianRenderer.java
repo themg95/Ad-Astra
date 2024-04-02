@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class CorruptedLunarianRenderer extends MobRenderer<CorruptedLunarian, CorruptedLunarianModel> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/lunarian/corrupted_lunarian.png");
 
     public CorruptedLunarianRenderer(EntityRendererProvider.Context context) {

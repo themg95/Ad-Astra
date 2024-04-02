@@ -17,6 +17,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import java.util.List;
 
 public class PipeDuctBlock extends PipeBlock {
+
     public PipeDuctBlock(long transferRate, Type type, Properties properties) {
         super(transferRate, type, 0, properties);
     }

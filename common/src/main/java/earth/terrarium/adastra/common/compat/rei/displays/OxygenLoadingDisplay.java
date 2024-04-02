@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.List;
 
 public record OxygenLoadingDisplay(OxygenLoadingRecipe recipe) implements Display {
+
     public OxygenLoadingDisplay(RecipeHolder<OxygenLoadingRecipe> recipe) {
         this(recipe.value());
     }

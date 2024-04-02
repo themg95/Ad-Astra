@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.Supplier;
 
 public abstract class RecipeMachineBlockEntity<T extends Recipe<Container>> extends EnergyContainerMachineBlockEntity {
+
     @Nullable
     protected T recipe;
     protected int cookTime;

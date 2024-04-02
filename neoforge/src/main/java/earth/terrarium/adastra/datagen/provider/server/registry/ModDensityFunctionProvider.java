@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.DensityFunction;
 
 public class ModDensityFunctionProvider {
+
     public static final ResourceKey<DensityFunction> CRATERS = register("craters");
 
     private static ResourceKey<DensityFunction> register(String name) {

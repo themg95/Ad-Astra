@@ -16,6 +16,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix4f;
 
 public class SensorApp implements Ti69App {
+
     public static final ResourceLocation ID = new ResourceLocation(AdAstra.MOD_ID, "sensor");
 
     @Override

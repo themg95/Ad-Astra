@@ -37,6 +37,7 @@ import java.nio.file.Path;
 import java.util.concurrent.CompletableFuture;
 
 public class StructureUpdater implements DataProvider {
+
     private final String basePath;
     private final String modid;
     private final PackOutput output;

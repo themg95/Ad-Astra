@@ -12,6 +12,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 
 public class LanderModel extends EntityModel<Lander> {
+
     public static final ModelLayerLocation LAYER = new ModelLayerLocation(new ResourceLocation(AdAstra.MOD_ID, "lander"), "main");
 
     private final ModelPart root;

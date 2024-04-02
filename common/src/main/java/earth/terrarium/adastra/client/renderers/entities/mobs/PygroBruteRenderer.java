@@ -13,6 +13,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class PygroBruteRenderer extends MobRenderer<PygroBrute, PygroBruteModel> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/entity/mob/pygro_brute.png");
 
     public PygroBruteRenderer(EntityRendererProvider.Context context) {

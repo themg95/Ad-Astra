@@ -26,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<WrappedItemEnergyContainer> {
+
     public static final String ACTIVE_TAG = "Active";
     public static final String MODE_TAG = "Mode";
 

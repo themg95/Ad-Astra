@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 public abstract class VehicleItem extends RenderedItem implements BotariumFluidItem<WrappedItemFluidContainer> {
+
     private final Supplier<EntityType<?>> type;
 
     public VehicleItem(Supplier<EntityType<?>> type, Properties properties) {

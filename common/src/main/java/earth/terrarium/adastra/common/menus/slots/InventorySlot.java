@@ -4,6 +4,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 
 public class InventorySlot extends Slot {
+
     private boolean active = true;
 
     public InventorySlot(Container container, int slot, int x, int y) {

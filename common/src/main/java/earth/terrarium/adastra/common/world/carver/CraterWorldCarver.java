@@ -17,6 +17,7 @@ import net.minecraft.world.level.levelgen.carver.WorldCarver;
 import java.util.function.Function;
 
 public class CraterWorldCarver extends WorldCarver<CarverConfiguration> {
+
     public CraterWorldCarver(Codec<CarverConfiguration> codec) {
         super(codec);
     }

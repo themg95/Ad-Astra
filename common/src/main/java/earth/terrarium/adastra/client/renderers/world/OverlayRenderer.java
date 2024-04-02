@@ -18,6 +18,7 @@ import java.util.function.BooleanSupplier;
 import java.util.function.Supplier;
 
 public class OverlayRenderer {
+
     private final Map<BlockPos, Set<BlockPos>> positions = new HashMap<>();
     private final int color;
     private final BooleanSupplier config;

@@ -9,6 +9,7 @@ import net.minecraft.world.level.levelgen.synth.BlendedNoise;
 
 // Uses blended noise as we need to use the vanilla seed, which only BlendedNoise and EndIslandDensityFunction are hardcoded to get
 public class CratersDensityFunction extends BlendedNoise {
+
     private final long seed;
     private final double scale;
 

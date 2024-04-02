@@ -34,6 +34,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class NasaWorkbenchBlockEntity extends ContainerMachineBlockEntity {
+
     public static final List<ConfigurationEntry> SIDE_CONFIG = List.of(
         new ConfigurationEntry(ConfigurationType.SLOT, Configuration.NONE, ConstantComponents.SIDE_CONFIG_INPUT_SLOTS)
     );

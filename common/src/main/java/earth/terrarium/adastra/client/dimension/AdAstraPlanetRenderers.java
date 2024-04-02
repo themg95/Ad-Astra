@@ -17,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class AdAstraPlanetRenderers extends SimpleJsonResourceReloadListener {
+
     public AdAstraPlanetRenderers() {
         super(Constants.GSON, "planet_renderers");
     }

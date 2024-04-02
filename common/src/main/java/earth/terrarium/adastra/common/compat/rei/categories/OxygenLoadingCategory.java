@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class OxygenLoadingCategory implements DisplayCategory<OxygenLoadingDisplay> {
+
     public static final CategoryIdentifier<OxygenLoadingDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "oxygen_loading");
 
     @Override

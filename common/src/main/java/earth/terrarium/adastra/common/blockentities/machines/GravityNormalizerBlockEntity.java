@@ -36,6 +36,7 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 public class GravityNormalizerBlockEntity extends EnergyContainerMachineBlockEntity {
+
     public static final List<ConfigurationEntry> SIDE_CONFIG = List.of(
         new ConfigurationEntry(ConfigurationType.ENERGY, Configuration.NONE, ConstantComponents.SIDE_CONFIG_ENERGY)
     );

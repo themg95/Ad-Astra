@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.function.Function;
 
 public class GuiUtils {
+
     public static final ResourceLocation ENERGY_BAR = new ResourceLocation(AdAstra.MOD_ID, "energy_bar");
     public static final int ENERGY_BAR_WIDTH = 13;
     public static final int ENERGY_BAR_HEIGHT = 46;

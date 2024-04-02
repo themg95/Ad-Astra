@@ -13,6 +13,7 @@ import net.minecraft.world.level.ChunkPos;
 import java.util.*;
 
 public class SpaceStationHandler extends SaveHandler {
+
     private final Map<UUID, Set<SpaceStation>> spaceStationData = new HashMap<>();
 
     @Override

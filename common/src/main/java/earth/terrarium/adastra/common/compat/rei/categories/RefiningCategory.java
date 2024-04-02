@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RefiningCategory implements DisplayCategory<RefiningDisplay> {
+
     public static final CategoryIdentifier<RefiningDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "fuel_refining");
 
     @Override

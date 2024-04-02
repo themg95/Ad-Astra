@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class CoalGeneratorBlockEntity extends EnergyContainerMachineBlockEntity {
+
     public static final List<ConfigurationEntry> SIDE_CONFIG = List.of(
         new ConfigurationEntry(ConfigurationType.SLOT, Configuration.NONE, ConstantComponents.SIDE_CONFIG_INPUT_SLOTS),
         new ConfigurationEntry(ConfigurationType.ENERGY, Configuration.PUSH, ConstantComponents.SIDE_CONFIG_ENERGY)

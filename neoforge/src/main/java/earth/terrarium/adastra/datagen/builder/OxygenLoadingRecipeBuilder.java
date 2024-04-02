@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
 public class OxygenLoadingRecipeBuilder extends CodecRecipeBuilder {
+
     private final OxygenLoadingRecipe recipe;
 
     public OxygenLoadingRecipeBuilder(int cookingTime, int energy, QuantifiedFluidIngredient input, FluidHolder result) {

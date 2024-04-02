@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.biome.Biome;
 
 public final class ModBiomeTags {
+
     public static final TagKey<Biome> HAS_ACID_RAIN = tag("has_acid_rain");
 
     public static final TagKey<Biome> OIL_WELL = tag("has_structure/oil_well");

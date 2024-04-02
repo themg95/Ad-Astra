@@ -7,6 +7,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 
 public final class ModItemTags {
+
     public static final TagKey<Item> GLOBES = tag("globes");
     public static final TagKey<Item> FLAGS = tag("flags");
     public static final TagKey<Item> SLIDING_DOORS = tag("sliding_doors");

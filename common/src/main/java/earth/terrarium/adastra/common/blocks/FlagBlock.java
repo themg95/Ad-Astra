@@ -42,6 +42,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class FlagBlock extends BasicEntityBlock implements SimpleWaterloggedBlock {
+
     public static final MapCodec<FlagBlock> CODEC = simpleCodec(FlagBlock::new);
 
     public static final EightDirectionProperty FACING = EightDirectionProperty.FACING;

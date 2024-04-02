@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class GlobeBlockEntity extends BlockEntity implements TickableBlockEntity {
+
     private float torque;
     private float yRot;
     private float lastYRot;

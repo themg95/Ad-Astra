@@ -20,6 +20,7 @@ import net.minecraft.world.level.material.Fluids;
 import org.jetbrains.annotations.Nullable;
 
 public abstract class BasicEntityBlock extends BaseEntityBlock {
+
     private static final CacheableFunction<Block, BlockEntityType<?>> BLOCK_TO_ENTITY = new CacheableFunction<>(block ->
         ModBlockEntityTypes.BLOCK_ENTITY_TYPES
             .stream()

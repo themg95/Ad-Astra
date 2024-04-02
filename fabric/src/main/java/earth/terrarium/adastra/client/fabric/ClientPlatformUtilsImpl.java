@@ -18,6 +18,7 @@ import net.minecraft.world.level.Level;
 import java.util.Map;
 
 public class ClientPlatformUtilsImpl {
+
     public static BakedModel getModel(ModelManager dispatcher, ResourceLocation id) {
         return dispatcher.getModel(id);
     }

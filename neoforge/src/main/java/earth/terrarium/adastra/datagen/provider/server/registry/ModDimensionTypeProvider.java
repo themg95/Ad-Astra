@@ -16,6 +16,7 @@ import net.minecraft.world.level.dimension.DimensionType;
 import java.util.OptionalLong;
 
 public class ModDimensionTypeProvider {
+
     public static final ResourceKey<DimensionType> EARTH_ORBIT = register("earth_orbit");
     public static final ResourceKey<DimensionType> MOON_ORBIT = register("moon_orbit");
     public static final ResourceKey<DimensionType> MARS_ORBIT = register("mars_orbit");

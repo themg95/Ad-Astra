@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CryoFreezingCategory implements DisplayCategory<CryoFreezingDisplay> {
+
     public static final CategoryIdentifier<CryoFreezingDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "cryo_freezing");
 
     @Override

@@ -28,21 +28,25 @@ public class ClientPlatformUtils {
 
     @FunctionalInterface
     public interface SpriteParticleRegistration<T extends ParticleOptions> {
+
         ParticleProvider<T> create(SpriteSet spriteSet);
     }
 
     @FunctionalInterface
     public interface LayerDefinitionRegistry {
+
         void register(ModelLayerLocation location, Supplier<LayerDefinition> definition);
     }
 
     @FunctionalInterface
     public interface ArmorFactory {
+
         HumanoidModel<?> create(ModelPart root, EquipmentSlot slot, ItemStack stack, HumanoidModel<LivingEntity> parentModel);
     }
 
     @FunctionalInterface
     public interface RenderHud {
+
         void renderHud(GuiGraphics graphics, float partialTick);
     }
 

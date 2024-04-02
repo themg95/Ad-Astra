@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class AlloyingRecipeBuilder extends CodecRecipeBuilder {
+
     private final AlloyingRecipe recipe;
 
     public AlloyingRecipeBuilder(int cookingTime, int energy, List<Ingredient> ingredients, ItemStack result) {

@@ -28,6 +28,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class JetSuitItem extends SpaceSuitItem implements BotariumEnergyItem<WrappedItemEnergyContainer> {
+
     private final long energyCapacity;
 
     public JetSuitItem(ArmorMaterial material, Type type, int tankSize, int energy, Properties properties) {

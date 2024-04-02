@@ -17,6 +17,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
 public class IndustrialLampBlock extends FaceAttachedHorizontalDirectionalBlock {
+
     public static final MapCodec<IndustrialLampBlock> CODEC = simpleCodec(IndustrialLampBlock::new);
 
     public static final VoxelShape NORTH_SHAPE = Shapes.join(

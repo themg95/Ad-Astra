@@ -9,6 +9,7 @@ import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
 
 public class ModParticleTypes {
+
     public static final ResourcefulRegistry<ParticleType<?>> PARTICLE_TYPES = ResourcefulRegistries.create(BuiltInRegistries.PARTICLE_TYPE, AdAstra.MOD_ID);
 
     public static final RegistryEntry<SimpleParticleType> ACID_RAIN = PARTICLE_TYPES.register("acid_rain", () -> new SimpleParticleType(true) {});

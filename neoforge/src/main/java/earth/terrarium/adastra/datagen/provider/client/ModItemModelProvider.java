@@ -15,6 +15,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
+
     public static final ResourceLocation RENDERED_ITEM = new ResourceLocation(AdAstra.MOD_ID, "item/rendered_item");
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {

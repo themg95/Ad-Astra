@@ -22,6 +22,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
 public class ModEntityTypes {
+
     public static final ResourcefulRegistry<EntityType<?>> ENTITY_TYPES = ResourcefulRegistries.create(BuiltInRegistries.ENTITY_TYPE, AdAstra.MOD_ID);
 
     public static final RegistryEntry<EntityType<AirVortex>> AIR_VORTEX = ENTITY_TYPES.register("air_vortex", () ->

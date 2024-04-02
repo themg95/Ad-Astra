@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 public class PressableImageButton extends ImageButton {
+
     private WidgetSprites sprites;
 
     public PressableImageButton(int x, int y, int width, int height, WidgetSprites sprites, OnPress onPress) {

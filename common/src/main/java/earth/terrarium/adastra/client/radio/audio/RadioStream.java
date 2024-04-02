@@ -124,6 +124,7 @@ public class RadioStream extends InputStream {
     }
 
     private static class ClosedException extends RuntimeException {
+
         private ClosedException() {
             super("Stream closed");
         }

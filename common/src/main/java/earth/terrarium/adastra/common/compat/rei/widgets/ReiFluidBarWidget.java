@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class ReiFluidBarWidget extends Widget {
+
     private final Rectangle bounds;
     private final boolean gain;
     private final long perTick;

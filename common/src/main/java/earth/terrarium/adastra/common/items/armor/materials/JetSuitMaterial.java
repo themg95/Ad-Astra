@@ -8,6 +8,7 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class JetSuitMaterial implements ArmorMaterial {
+
     public static final ArmorMaterial MATERIAL = new JetSuitMaterial();
 
     private static final int[] BASE_DURABILITY = new int[]{15, 17, 18, 13};

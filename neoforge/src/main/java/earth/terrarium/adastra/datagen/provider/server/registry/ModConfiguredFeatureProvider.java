@@ -25,6 +25,7 @@ import java.util.List;
 
 @SuppressWarnings("SameParameterValue")
 public class ModConfiguredFeatureProvider {
+
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOON_CHEESE_ORE = register("moon_cheese_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOON_DESH_ORE = register("moon_desh_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> MOON_ICE_SHARD_ORE = register("moon_ice_shard_ore");

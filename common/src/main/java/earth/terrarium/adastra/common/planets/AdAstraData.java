@@ -21,6 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AdAstraData extends SimpleJsonResourceReloadListener {
+
     private static final Map<ResourceKey<Level>, Planet> PLANETS = new HashMap<>();
     private static final Map<ResourceKey<Level>, ResourceKey<Level>> DIMENSIONS_TO_PLANETS = new HashMap<>();
 

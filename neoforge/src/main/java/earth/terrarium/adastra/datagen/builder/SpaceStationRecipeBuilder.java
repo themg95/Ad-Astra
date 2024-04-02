@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class SpaceStationRecipeBuilder extends CodecRecipeBuilder {
+
     private final SpaceStationRecipe recipe;
 
     public SpaceStationRecipeBuilder(List<IngredientHolder> ingredients, ResourceKey<Level> dimension, ResourceLocation structure) {

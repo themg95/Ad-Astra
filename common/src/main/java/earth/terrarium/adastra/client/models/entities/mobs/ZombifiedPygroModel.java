@@ -12,6 +12,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class ZombifiedPygroModel extends HumanoidModel<ZombifiedPygro> {
+
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(AdAstra.MOD_ID, "zombified_pygro"), "main");
 
     public ZombifiedPygroModel(ModelPart modelPart) {

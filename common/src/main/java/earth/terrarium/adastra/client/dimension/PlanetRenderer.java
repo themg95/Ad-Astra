@@ -27,6 +27,7 @@ public record PlanetRenderer(
     WeightedRandomList<WeightedEntry.Wrapper<Integer>> starColors,
     List<SkyRenderable> skyRenderables
 ) {
+
     public static final Codec<PlanetRenderer> CODEC = RecordCodecBuilder.create(inst -> inst.group(
         ResourceKey.codec(Registries.DIMENSION).fieldOf("dimension").forGetter(PlanetRenderer::dimension),
         Codec.BOOL.fieldOf("custom_clouds").forGetter(PlanetRenderer::customClouds),

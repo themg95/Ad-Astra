@@ -14,6 +14,7 @@ import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseGeneratorSettings;
 
 public class ModDimensionProvider {
+
     public static final ResourceKey<LevelStem> EARTH_ORBIT = register("earth_orbit");
     public static final ResourceKey<LevelStem> MOON_ORBIT = register("moon_orbit");
     public static final ResourceKey<LevelStem> MARS_ORBIT = register("mars_orbit");

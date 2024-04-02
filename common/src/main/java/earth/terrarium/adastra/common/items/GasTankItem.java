@@ -27,6 +27,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class GasTankItem extends Item implements BotariumFluidItem<WrappedItemFluidContainer> {
+
     private final long tankSize;
     private final long distributionAmount;
 

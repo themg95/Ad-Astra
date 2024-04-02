@@ -9,6 +9,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 public class LanderScreen extends VehicleScreen<LanderMenu, Lander> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/lander.png");
 
     public LanderScreen(LanderMenu menu, Inventory inventory, Component component) {

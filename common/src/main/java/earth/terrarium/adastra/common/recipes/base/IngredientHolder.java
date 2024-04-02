@@ -8,6 +8,7 @@ import com.teamresourceful.resourcefullib.common.bytecodecs.ExtraByteCodecs;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public record IngredientHolder(Ingredient ingredient, int count) {
+
     public static final Codec<IngredientHolder> CODEC = RecordCodecBuilder.create(instance -> instance.group(
         Ingredient.CODEC.fieldOf("ingredient").forGetter(IngredientHolder::ingredient),
         Codec.INT.fieldOf("count").orElse(1).forGetter(IngredientHolder::count)

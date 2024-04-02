@@ -19,6 +19,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public record NasaWorkbenchCategory(IGuiHelper guiHelper) implements IRecipeCategory<NasaWorkbenchRecipe> {
+
     public static final ResourceLocation ID = new ResourceLocation(AdAstra.MOD_ID, "nasa_workbench");
     public static final RecipeType<NasaWorkbenchRecipe> RECIPE = new RecipeType<>(ID, NasaWorkbenchRecipe.class);
 

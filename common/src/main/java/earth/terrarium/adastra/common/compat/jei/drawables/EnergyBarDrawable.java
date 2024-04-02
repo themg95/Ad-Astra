@@ -10,6 +10,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class EnergyBarDrawable implements IDrawable {
+
     private final int mouseX;
     private final int mouseY;
     private final long perTick;

@@ -12,6 +12,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfi
 import net.minecraft.world.level.levelgen.feature.configurations.ColumnFeatureConfiguration;
 
 public class ModFeatures {
+
     public static final ResourcefulRegistry<Feature<?>> FEATURES = ResourcefulRegistries.create(BuiltInRegistries.FEATURE, AdAstra.MOD_ID);
 
     public static final RegistryEntry<Feature<ColumnFeatureConfiguration>> INFERNAL_SPIRE_COLUMN = FEATURES.register("infernal_spire_column", () -> new InfernalSpireColumnFeature(ColumnFeatureConfiguration.CODEC));

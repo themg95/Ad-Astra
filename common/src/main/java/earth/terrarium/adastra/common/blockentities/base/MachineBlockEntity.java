@@ -15,6 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class MachineBlockEntity extends BlockEntity implements TickableBlockEntity {
+
     private boolean initialized;
 
     public MachineBlockEntity(BlockPos pos, BlockState state) {

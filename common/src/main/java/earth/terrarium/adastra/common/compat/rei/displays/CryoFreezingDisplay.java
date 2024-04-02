@@ -11,6 +11,7 @@ import net.minecraft.world.item.crafting.RecipeHolder;
 import java.util.List;
 
 public record CryoFreezingDisplay(CryoFreezingRecipe recipe) implements Display {
+
     public CryoFreezingDisplay(RecipeHolder<CryoFreezingRecipe> recipe) {
         this(recipe.value());
     }

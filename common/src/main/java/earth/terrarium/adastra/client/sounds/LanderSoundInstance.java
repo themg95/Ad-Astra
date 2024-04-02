@@ -3,6 +3,7 @@ package earth.terrarium.adastra.client.sounds;
 import earth.terrarium.adastra.common.entities.vehicles.Vehicle;
 
 public class LanderSoundInstance extends RocketSoundInstance {
+
     public LanderSoundInstance(Vehicle vehicle) {
         super(vehicle);
     }

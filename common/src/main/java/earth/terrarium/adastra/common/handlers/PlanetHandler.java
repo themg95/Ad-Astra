@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PlanetHandler extends SaveHandler {
+
     private final Map<BlockPos, PlanetData> planetData = new HashMap<>();
     private final ServerLevel level;
 

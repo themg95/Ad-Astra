@@ -43,6 +43,7 @@ import java.util.List;
 
 @SuppressWarnings("deprecation")
 public class SlidingDoorBlock extends BasicEntityBlock implements Wrenchable {
+
     public static final MapCodec<SlidingDoorBlock> CODEC = simpleCodec(SlidingDoorBlock::new);
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty OPEN = BlockStateProperties.OPEN;

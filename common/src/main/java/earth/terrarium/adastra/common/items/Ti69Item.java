@@ -15,6 +15,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class Ti69Item extends Item {
+
     public static final Ti69App APP = new SensorApp();
 
     public Ti69Item(Properties properties) {

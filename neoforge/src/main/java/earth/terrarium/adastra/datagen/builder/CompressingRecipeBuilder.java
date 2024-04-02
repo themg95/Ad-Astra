@@ -13,6 +13,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
 public class CompressingRecipeBuilder extends CodecRecipeBuilder {
+
     private final CompressingRecipe recipe;
 
     public CompressingRecipeBuilder(int cookingTime, int energy, Ingredient ingredient, ItemStack result) {

@@ -23,6 +23,7 @@ import org.jetbrains.annotations.Nullable;
 import org.joml.Matrix4f;
 
 public class ModSkyRenderer {
+
     private final PlanetRenderer renderer;
 
     @Nullable

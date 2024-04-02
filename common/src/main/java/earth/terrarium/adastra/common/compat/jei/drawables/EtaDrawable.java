@@ -11,6 +11,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class EtaDrawable implements IDrawable {
+
     private final int mouseX;
     private final int mouseY;
     private final int cookTime;

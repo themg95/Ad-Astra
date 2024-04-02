@@ -17,6 +17,7 @@ import java.util.function.BiConsumer;
 
 
 public class ModPlanetProvider extends ModCodecProvider<Planet> {
+
     public static final ResourceKey<Registry<Planet>> PLANET_REGISTRY = ResourceKey.createRegistryKey(new ResourceLocation(AdAstra.MOD_ID, "planets"));
 
     public ModPlanetProvider(PackOutput packOutput) {

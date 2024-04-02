@@ -35,6 +35,7 @@ import java.util.List;
 import java.util.stream.StreamSupport;
 
 public class SpaceSuitItem extends CustomDyeableArmorItem implements BotariumFluidItem<WrappedItemFluidContainer> {
+
     protected final long tankSize;
 
     public SpaceSuitItem(ArmorMaterial material, Type type, long tankSize, Properties properties) {

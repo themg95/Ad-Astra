@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class NasaWorkbenchRecipeBuilder extends CodecRecipeBuilder {
+
     private final NasaWorkbenchRecipe recipe;
 
     public NasaWorkbenchRecipeBuilder(List<Ingredient> ingredients, ItemStack result) {

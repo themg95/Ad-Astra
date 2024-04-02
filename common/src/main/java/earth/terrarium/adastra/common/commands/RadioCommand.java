@@ -6,6 +6,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 
 public class RadioCommand {
+
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         String stationsFile = System.getProperty("adastra.stations");
         if (stationsFile == null) return;

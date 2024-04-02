@@ -27,6 +27,7 @@ import net.minecraft.world.item.*;
 
 @SuppressWarnings("unused")
 public class ModItems {
+
     public static final ResourcefulRegistry<Item> ITEMS = ResourcefulRegistries.create(BuiltInRegistries.ITEM, AdAstra.MOD_ID);
 
     // Items with item textures.

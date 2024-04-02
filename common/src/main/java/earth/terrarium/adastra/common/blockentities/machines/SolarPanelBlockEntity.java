@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class SolarPanelBlockEntity extends EnergyContainerMachineBlockEntity {
+
     public static final List<ConfigurationEntry> SIDE_CONFIG = List.of(
         new ConfigurationEntry(ConfigurationType.ENERGY, Configuration.PUSH, ConstantComponents.SIDE_CONFIG_ENERGY)
     );

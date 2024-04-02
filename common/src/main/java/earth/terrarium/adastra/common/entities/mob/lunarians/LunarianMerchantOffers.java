@@ -36,6 +36,7 @@ import java.util.Map;
 
 // LEGACY ENTITY. WILL BE REPLACED IN THE FUTURE.
 public class LunarianMerchantOffers {
+
     public static final Map<VillagerProfession, Int2ObjectMap<ItemListing[]>> PROFESSION_TO_LEVELED_TRADE = Util.make(Maps.newHashMap(), map -> {
         map.put(VillagerProfession.FARMER, copyToFastUtilMap(Map.of(1, new ItemListing[]{new BuyForOneEmeraldFactory(ModItems.CHEESE.get(), 20, 20, 5), new BuyForOneEmeraldFactory(Items.GLOW_BERRIES, 22, 16, 3), new SellItemFactory(Items.BREAD, 1, 6, 16, 1)}, 2, new ItemListing[]{new SellItemFactory(Items.PUMPKIN_PIE, 1, 4, 5), new SellItemFactory(Items.GOLDEN_APPLE, 8, 1, 8, 20)}, 3, new ItemListing[]{new SellItemFactory(Items.COOKIE, 3, 18, 10), new BuyForOneEmeraldFactory(Blocks.MELON, 4, 12, 20)}, 4, new ItemListing[]{new SellItemFactory(Blocks.CAKE, 1, 1, 12, 15), new BuyForOneEmeraldFactory(Items.DIRT, 63, 16, 2), new SellSuspiciousStewFactory(MobEffects.NIGHT_VISION, 100, 15), new SellSuspiciousStewFactory(MobEffects.JUMP, 160, 15), new SellSuspiciousStewFactory(MobEffects.WEAKNESS, 140, 15), new SellSuspiciousStewFactory(MobEffects.BLINDNESS, 120, 15), new SellSuspiciousStewFactory(MobEffects.POISON, 280, 15), new SellSuspiciousStewFactory(MobEffects.SATURATION, 7, 15)},
             5, new ItemListing[]{new SellItemFactory(Items.GOLDEN_CARROT, 3, 3, 30), new SellItemFactory(Items.GLISTERING_MELON_SLICE, 4, 3, 30)})));
@@ -82,6 +83,7 @@ public class LunarianMerchantOffers {
     }
 
     static class BuyForOneEmeraldFactory implements ItemListing {
+
         private final Item buy;
         private final int price;
         private final int maxUses;
@@ -104,6 +106,7 @@ public class LunarianMerchantOffers {
     }
 
     static class SellItemFactory implements ItemListing {
+
         private final ItemStack sell;
         private final int price;
         private final int count;
@@ -145,6 +148,7 @@ public class LunarianMerchantOffers {
     }
 
     static class SellSuspiciousStewFactory implements ItemListing {
+
         private final List<SuspiciousEffectHolder.EffectEntry> effects;
         final int duration;
         final int experience;
@@ -167,6 +171,7 @@ public class LunarianMerchantOffers {
     }
 
     static class ProcessItemFactory implements ItemListing {
+
         private final ItemStack secondBuy;
         private final int secondCount;
         private final int price;
@@ -199,6 +204,7 @@ public class LunarianMerchantOffers {
     }
 
     static class SellEnchantedToolFactory implements ItemListing {
+
         private final ItemStack tool;
         private final int basePrice;
         private final int maxUses;
@@ -228,6 +234,7 @@ public class LunarianMerchantOffers {
     }
 
     static class SellPotionHoldingItemFactory implements ItemListing {
+
         private final ItemStack sell;
         private final int sellCount;
         private final int price;
@@ -259,6 +266,7 @@ public class LunarianMerchantOffers {
     }
 
     static class EnchantBookFactory implements ItemListing {
+
         private final int experience;
 
         public EnchantBookFactory(int experience) {
@@ -283,6 +291,7 @@ public class LunarianMerchantOffers {
     }
 
     static class SellDyedArmorFactory implements ItemListing {
+
         private final Item sell;
         private final int price;
         private final int maxUses;

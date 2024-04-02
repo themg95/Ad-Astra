@@ -16,6 +16,7 @@ import org.joml.Matrix4f;
  */
 @SuppressWarnings({"unused", "UnusedReturnValue"})
 public class ModDimensionSpecialEffects extends DimensionSpecialEffects {
+
     private final PlanetRenderer renderer;
     private final ModSkyRenderer skyRenderer;
 

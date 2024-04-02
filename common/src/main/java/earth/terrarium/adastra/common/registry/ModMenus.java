@@ -18,6 +18,7 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
 public class ModMenus {
+
     public static final ResourcefulRegistry<MenuType<?>> MENUS = ResourcefulRegistries.create(BuiltInRegistries.MENU, AdAstra.MOD_ID);
 
     public static final RegistryEntry<MenuType<CoalGeneratorMenu>> COAL_GENERATOR = MENUS.register("coal_generator_menu", () -> createMenuType(CoalGeneratorMenu::new, CoalGeneratorBlockEntity.class));
@@ -47,6 +48,7 @@ public class ModMenus {
     }
 
     public interface Factory<T extends BaseContainerMenu<E>, E extends BlockEntity> {
+
         T create(int syncId, Inventory inventory, E blockEntity);
     }
 }

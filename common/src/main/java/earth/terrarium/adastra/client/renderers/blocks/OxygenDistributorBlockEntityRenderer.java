@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.AttachFace;
 
 public class OxygenDistributorBlockEntityRenderer implements BlockEntityRenderer<OxygenDistributorBlockEntity> {
+
     public static final ResourceLocation TOP = new ResourceLocation(AdAstra.MOD_ID, "block/oxygen_distributor_top");
 
     @Override
@@ -84,6 +85,7 @@ public class OxygenDistributorBlockEntityRenderer implements BlockEntityRenderer
     }
 
     public static class ItemRenderer extends BlockEntityWithoutLevelRenderer {
+
         public ItemRenderer() {
             super(Minecraft.getInstance().getBlockEntityRenderDispatcher(),
                 Minecraft.getInstance().getEntityModels());

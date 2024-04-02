@@ -25,6 +25,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 public class ModLangProvider extends LanguageProvider {
+
     public ModLangProvider(PackOutput output) {
         super(output, AdAstra.MOD_ID, "en_us");
     }

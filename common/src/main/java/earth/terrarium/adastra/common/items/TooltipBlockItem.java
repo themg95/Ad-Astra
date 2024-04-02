@@ -12,6 +12,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class TooltipBlockItem extends BlockItem {
+
     private final Component description;
 
     public TooltipBlockItem(Block block, Component description, Properties properties) {

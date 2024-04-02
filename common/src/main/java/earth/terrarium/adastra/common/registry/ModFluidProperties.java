@@ -8,6 +8,7 @@ import earth.terrarium.botarium.common.registry.fluid.FluidRegistry;
 import net.minecraft.resources.ResourceLocation;
 
 public final class ModFluidProperties {
+
     public static final FluidRegistry FLUID_PROPERTIES = new FluidRegistry(AdAstra.MOD_ID);
 
     public static final FluidData OXYGEN = FLUID_PROPERTIES.register("oxygen", FluidProperties.create()

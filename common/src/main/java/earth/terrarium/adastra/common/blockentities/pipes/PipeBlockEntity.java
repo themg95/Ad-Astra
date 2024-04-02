@@ -16,6 +16,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 
 public abstract class PipeBlockEntity extends BlockEntity implements TickableBlockEntity, Pipe {
+
     protected final Map<BlockPos, Direction> sources = new IdentityHashMap<>();
     protected final Map<BlockPos, Direction> consumers = new IdentityHashMap<>();
     private final long transferRate;

@@ -11,6 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.joml.Matrix4f;
 
 public interface Ti69App {
+
     /**
      * Renders the contents of the app
      *

@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
 public class SolarPanelScreen extends MachineScreen<SolarPanelMenu, SolarPanelBlockEntity> {
+
     public static final ResourceLocation TEXTURE = new ResourceLocation(AdAstra.MOD_ID, "textures/gui/container/solar_panel.png");
 
     public SolarPanelScreen(SolarPanelMenu menu, Inventory inventory, Component component) {

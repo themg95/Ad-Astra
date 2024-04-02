@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 
 // Source: https://www.windows2universe.org/our_solar_system/planets_table.html
 public class PlanetConstants {
+
     public static final ResourceLocation SOLAR_SYSTEM = new ResourceLocation(AdAstra.MOD_ID, "solar_system");
     public static final ResourceLocation PROXIMA_CENTAURI = new ResourceLocation(AdAstra.MOD_ID, "proxima_centauri");
 

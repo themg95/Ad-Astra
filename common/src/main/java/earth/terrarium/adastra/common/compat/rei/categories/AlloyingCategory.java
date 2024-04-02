@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlloyingCategory implements DisplayCategory<AlloyingDisplay> {
+
     public static final CategoryIdentifier<AlloyingDisplay> ID = CategoryIdentifier.of(AdAstra.MOD_ID, "alloying");
 
     @Override

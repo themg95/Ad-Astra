@@ -13,6 +13,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 @SuppressWarnings("deprecation")
 public class GravityNormalizerBlock extends SidedMachineBlock {
+
     public static final VoxelShape BOTTOM_SHAPE = Block.box(1, 0, 1, 15, 5, 15);
 
     public static final VoxelShape TOP_SHAPE = Block.box(1, 11, 1, 15, 16, 15);

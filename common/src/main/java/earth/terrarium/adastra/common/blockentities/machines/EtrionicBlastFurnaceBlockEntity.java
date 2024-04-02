@@ -36,6 +36,7 @@ import java.util.Locale;
 import java.util.function.Predicate;
 
 public class EtrionicBlastFurnaceBlockEntity extends EnergyContainerMachineBlockEntity {
+
     public static final List<ConfigurationEntry> SIDE_CONFIG = List.of(
         new ConfigurationEntry(ConfigurationType.SLOT, Configuration.NONE, ConstantComponents.SIDE_CONFIG_INPUT_SLOTS),
         new ConfigurationEntry(ConfigurationType.SLOT, Configuration.NONE, ConstantComponents.SIDE_CONFIG_OUTPUT_SLOTS),

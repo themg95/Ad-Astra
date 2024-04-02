@@ -14,6 +14,7 @@ import net.minecraft.world.item.Items;
 import org.jetbrains.annotations.NotNull;
 
 public class RefiningRecipeBuilder extends CodecRecipeBuilder {
+
     private final RefiningRecipe recipe;
 
     public RefiningRecipeBuilder(int cookingTime, int energy, QuantifiedFluidIngredient input, FluidHolder result) {

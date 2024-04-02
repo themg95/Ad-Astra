@@ -20,6 +20,7 @@ import net.minecraft.world.level.Level;
 import java.util.Collection;
 
 public class OxygenApiImpl implements OxygenApi {
+
     @Override
     public boolean hasOxygen(Level level) {
         return hasOxygen(level.dimension());

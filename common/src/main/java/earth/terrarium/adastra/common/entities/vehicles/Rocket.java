@@ -388,7 +388,7 @@ public class Rocket extends Vehicle {
 
     public boolean consumeFuel(boolean simulate) {
         if (level().isClientSide()) return false;
-        long buckets = FluidConstants.fromMillibuckets(fluidContainer.getFirstFluid().is(ModFluidTags.EFFICIENT_FUEL) ? 1000 : 3000);
+        long buckets = FluidConstants.fromMillibuckets(fluidContainer.getFirstFluid().is(ModFluidTags.EFFICIENT_FUEL) ? AdAstraConfig.launchEfficientFuelCost : AdAstraConfig.launchFuelCost);
         return fluidContainer.extractFluid(fluidContainer.getFirstFluid().copyWithAmount(buckets), simulate).getFluidAmount() >= buckets;
     }
 

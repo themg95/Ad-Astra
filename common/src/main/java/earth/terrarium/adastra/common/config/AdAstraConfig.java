@@ -95,4 +95,20 @@ public final class AdAstraConfig {
     )
     @Comment("An Air Vortex is created when an oxygenated structure breaks its seal, causing every entity inside to rapidly get sucked out. This setting disables that.")
     public static boolean disableAirVortexes;
+
+    @ConfigEntry(
+        id = "launchFuelCost",
+        type = EntryType.INTEGER,
+        translation = "config.ad_astra.launchFuelCost"
+    )
+    @Comment("The amount of MBs of fuel needed to launch a rocket")
+    public static int launchFuelCost = 3000;
+
+    @ConfigEntry(
+        id = "launchEfficientFuelCost",
+        type = EntryType.INTEGER,
+        translation = "config.ad_astra.launchEfficientFuelCost"
+    )
+    @Comment("The amount of MBs of efficient fuel (like cryo fuel) needed to launch a rocket")
+    public static int launchEfficientFuelCost = 1000;
 }

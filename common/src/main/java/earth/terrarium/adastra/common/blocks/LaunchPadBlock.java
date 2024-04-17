@@ -85,17 +85,18 @@ public class LaunchPadBlock extends Block implements SimpleWaterloggedBlock {
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
         if (!level.isClientSide()) {
-            var controllerPos = getController(state, pos);
-            var controllerState = level.getBlockState(controllerPos);
-            if (controllerState.isAir()) return;
-            level.setBlock(controllerPos, controllerState.setValue(POWERED, level.hasNeighborSignal(pos)), Block.UPDATE_CLIENTS);
+            BlockPos controllerPos = getController(state, pos);
+            BlockState controllerState = level.getBlockState(controllerPos);
+            if (controllerState.getBlock() instanceof LaunchPadBlock) {
+                level.setBlock(controllerPos, controllerState.setValue(POWERED, level.hasNeighborSignal(pos)), Block.UPDATE_CLIENTS);
+            }
         }
     }
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, LivingEntity placer, ItemStack stack) {
         for (var part : LaunchPadPartProperty.values()) {
-            var partPos = pos.north(part.xOffset()).east(part.yOffset());
+            BlockPos partPos = pos.north(part.xOffset()).east(part.yOffset());
             level.setBlock(partPos, state.setValue(PART, part), Block.UPDATE_CLIENTS);
         }
     }
@@ -104,7 +105,7 @@ public class LaunchPadBlock extends Block implements SimpleWaterloggedBlock {
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (!Block.canSupportRigidBlock(level, pos.below())) return false;
         for (var part : LaunchPadPartProperty.values()) {
-            var offset = pos.north(part.xOffset()).east(part.yOffset());
+            BlockPos offset = pos.north(part.xOffset()).east(part.yOffset());
             if (!level.getBlockState(offset).isAir()) return false;
         }
         return true;

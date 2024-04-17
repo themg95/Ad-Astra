@@ -1,3 +1,10 @@
 - Made etrionic blast furnace use alloying mode by default.
 - Added client config translations.
 - Fixed crash with PipeZ (#508).
+- Fixed REI crash.
+- Prevent sliding door blocks from being pushed with pistons.
+- Fixed crash when placing water on launchpads and sliding door blocks and updating them.
+- Added missing ore tags.
+- Added Russian translations (#509) - MaleSkam
+- Added Dutch translations (#525) - marlester-dev
+- Added Chinese translations (#523) - whyvo1

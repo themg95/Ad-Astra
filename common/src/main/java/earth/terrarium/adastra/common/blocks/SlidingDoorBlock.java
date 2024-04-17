@@ -159,19 +159,20 @@ public class SlidingDoorBlock extends BasicEntityBlock implements Wrenchable {
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
         if (!level.isClientSide()) {
-            var controllerPos = getController(state, pos);
-            var controllerState = level.getBlockState(controllerPos);
-            if (controllerState.isAir()) return;
-            level.setBlock(controllerPos, controllerState.setValue(POWERED, level.hasNeighborSignal(pos)), Block.UPDATE_CLIENTS);
+            BlockPos controllerPos = getController(state, pos);
+            BlockState controllerState = level.getBlockState(controllerPos);
+            if (controllerState.getBlock() instanceof SlidingDoorBlock) {
+                level.setBlock(controllerPos, controllerState.setValue(POWERED, level.hasNeighborSignal(pos)), Block.UPDATE_CLIENTS);
+            }
         }
     }
 
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
         if (!Block.canSupportRigidBlock(level, pos.below())) return false;
-        var direction = state.getValue(FACING).getClockWise();
+        Direction direction = state.getValue(FACING).getClockWise();
         for (var part : SlidingDoorPartProperty.values()) {
-            var offset = pos.relative(direction, part.xOffset()).above(part.yOffset());
+            BlockPos offset = pos.relative(direction, part.xOffset()).above(part.yOffset());
             if (!level.getBlockState(offset).isAir()) return false;
         }
         return true;

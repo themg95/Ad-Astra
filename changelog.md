@@ -1,15 +1,10 @@
-## WARNING
-
-This is a beta release. If you're updating from 1.15.5 or below, please back up your world and expect the following
-breaking changes:
-
-- Sliding doors will break and need to be placed again.
-- Launch pads will break and need to be placed again.
-- Cables and fluid pipes will break and need to be placed again.
-- All machines will lose their items, energy, and fluid contents.
-
-See https://modrinth.com/mod/ad-astra/version/1.15.7 for the full changelog.
-
-## Changes
-
-- Fixed fluids invisible in some GUIs and JEI.
+- Made etrionic blast furnace use alloying mode by default.
+- Added client config translations.
+- Fixed crash with PipeZ (#508).
+- Fixed REI crash.
+- Prevent sliding door blocks from being pushed with pistons.
+- Fixed crash when placing water on launchpads and sliding door blocks and updating them.
+- Added missing ore tags.
+- Added Russian translations (#509) - MaleSkam
+- Added Dutch translations (#525) - marlester-dev
+- Added Chinese translations (#523) - whyvo1

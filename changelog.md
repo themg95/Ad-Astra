@@ -12,4 +12,4 @@ See https://modrinth.com/mod/ad-astra/version/1.15.7 for the full changelog.
 
 ## Changes
 
-- Fix fluids invisible in some GUIs and JEI.
+- Fixed fluids invisible in some GUIs and JEI.

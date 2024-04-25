@@ -9,19 +9,17 @@ repositories {
 }
 
 dependencies {
-    modImplementation(group = "earth.terrarium.adastra", name = "adastra-$modLoader-$minecraftVersion", version = adAstraVersion)
+    modImplementation(group = "earth.terrarium.adastra", name = "ad_astra-$modLoader-$minecraftVersion", version = adAstraVersion)
 }
 ```
 
 Groovy DSL:
 ```groovy
 repositories {
-    maven {
-        url "https://maven.teamresourceful.com/repository/maven-public/"
-    }
+    maven { url "https://maven.teamresourceful.com/repository/maven-public/" }
 }
 
 dependencies {
-    modImplementation group: "earth.terrarium.adastra", name: "adastra-$modLoader-$minecraftVersion", version: adAstraVersion
+    modImplementation group: "earth.terrarium.adastra", name: "ad_astra-$modLoader-$minecraftVersion", version: adAstraVersion
 }
 ```

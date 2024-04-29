@@ -9,6 +9,7 @@ import earth.terrarium.adastra.common.handlers.PlanetHandler;
 import earth.terrarium.adastra.common.items.armor.SpaceSuitItem;
 import earth.terrarium.adastra.common.registry.ModDamageSources;
 import earth.terrarium.adastra.common.tags.ModEntityTypeTags;
+import earth.terrarium.adastra.common.tags.ModItemTags;
 import net.minecraft.Optionull;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceKey;
@@ -69,6 +70,8 @@ public class OxygenApiImpl implements OxygenApi {
         if (AdAstraConfig.disableOxygen) return;
         if (entity.getType().is(ModEntityTypeTags.LIVES_WITHOUT_OXYGEN)) return;
         if (entity.getType().is(ModEntityTypeTags.CAN_SURVIVE_IN_SPACE)) return;
+        if (SpaceSuitItem.hasFullSet(entity, ModItemTags.SPACE_RESISTANT_ARMOR)) return;
+        if (SpaceSuitItem.hasFullSet(entity, ModItemTags.OXYGEN_SUPPLYING_ARMOR)) return;
         if (SpaceSuitItem.hasFullSet(entity) && SpaceSuitItem.hasOxygen(entity)) return;
         if (this.hasOxygen(entity)) return;
         entity.hurt(ModDamageSources.create(level, ModDamageSources.OXYGEN), 2);

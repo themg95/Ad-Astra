@@ -18,6 +18,8 @@ public final class ModItemTags {
     public static final TagKey<Item> NETHERITE_SPACE_SUITS = tag("netherite_space_suit_items");
     public static final TagKey<Item> JET_SUITS = tag("jet_suit_items");
 
+    public static final TagKey<Item> SPACE_RESISTANT_ARMOR = tag("space_resistant_armor");
+    public static final TagKey<Item> OXYGEN_SUPPLYING_ARMOR = tag("oxygen_supplying_armor");
     public static final TagKey<Item> FREEZE_RESISTANT_ARMOR = tag("freeze_resistant_armor");
     public static final TagKey<Item> HEAT_RESISTANT_ARMOR = tag("heat_resistant_armor");
 

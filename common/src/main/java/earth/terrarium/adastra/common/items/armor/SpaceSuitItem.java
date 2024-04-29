@@ -32,7 +32,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
-import java.util.stream.StreamSupport;
 
 public class SpaceSuitItem extends CustomDyeableArmorItem implements BotariumFluidItem<WrappedItemFluidContainer> {
     protected final long tankSize;
@@ -74,8 +73,10 @@ public class SpaceSuitItem extends CustomDyeableArmorItem implements BotariumFlu
     }
 
     public static boolean hasFullSet(LivingEntity entity, TagKey<Item> spaceSuitTag) {
-        return StreamSupport.stream(entity.getArmorSlots().spliterator(), false)
-            .allMatch(stack -> stack.is(spaceSuitTag));
+        for (var stack : entity.getArmorSlots()) {
+            if (!stack.is(spaceSuitTag)) return false;
+        }
+        return true;
     }
 
     @Override

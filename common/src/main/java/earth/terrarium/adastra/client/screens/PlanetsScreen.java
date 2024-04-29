@@ -12,6 +12,7 @@ import earth.terrarium.adastra.AdAstra;
 import earth.terrarium.adastra.api.planets.Planet;
 import earth.terrarium.adastra.client.components.LabeledImageButton;
 import earth.terrarium.adastra.client.utils.DimensionRenderingUtils;
+import earth.terrarium.adastra.common.compat.cadmus.CadmusIntegration;
 import earth.terrarium.adastra.common.constants.ConstantComponents;
 import earth.terrarium.adastra.common.constants.PlanetConstants;
 import earth.terrarium.adastra.common.entities.vehicles.Rocket;
@@ -94,6 +95,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     @Override
     protected void init() {
+
         super.init();
         buttons.clear();
         spaceStationButtons.clear();
@@ -127,7 +129,6 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
             addSpaceStatonButton.active = selectedPlanet != null && menu.canConstruct(selectedPlanet.orbitIfPresent()) && !menu.isInSpaceStation(selectedPlanet.orbitIfPresent());
         }
 
-
         backButton.visible = pageIndex > (hasMultipleSolarSystems ? 0 : 1);
         addSpaceStatonButton.visible = pageIndex == 2 && selectedPlanet != null;
     }
@@ -146,6 +147,9 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     private void createPlanetButtons() {
         for (var planet : menu.getSortedPlanets()) {
+            if (CadmusIntegration.cadmusLoaded()) {
+                CadmusIntegration.addClientListeners(planet.dimension());
+            }
             if (planet.isSpace()) continue;
             if (menu.tier() < planet.tier()) continue;
             if (!planet.solarSystem().equals(selectedSolarSystem)) continue;
@@ -414,5 +418,13 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
     @SuppressWarnings("deprecation")
     private String title(String string) {
         return WordUtils.capitalizeFully(string.replace("_", " "));
+    }
+
+    @Override
+    public void removed() {
+        super.removed();
+        if (CadmusIntegration.cadmusLoaded()) {
+            menu.getSortedPlanets().forEach(planet -> CadmusIntegration.removeClientListeners(planet.dimension()));
+        }
     }
 }

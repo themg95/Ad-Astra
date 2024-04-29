@@ -1,6 +1,5 @@
 package earth.terrarium.adastra.common.menus.base;
 
-import earth.terrarium.adastra.common.compat.cadmus.CadmusIntegration;
 import earth.terrarium.adastra.common.config.AdAstraConfig;
 import earth.terrarium.adastra.common.handlers.LaunchingDimensionHandler;
 import earth.terrarium.adastra.common.handlers.SpaceStationHandler;
@@ -8,9 +7,6 @@ import earth.terrarium.adastra.common.handlers.base.SpaceStation;
 import earth.terrarium.adastra.common.menus.PlanetsMenu;
 import earth.terrarium.adastra.common.planets.AdAstraData;
 import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
-import it.unimi.dsi.fastutil.objects.Object2BooleanMap;
-import it.unimi.dsi.fastutil.objects.Object2BooleanMaps;
-import it.unimi.dsi.fastutil.objects.Object2BooleanOpenHashMap;
 import net.minecraft.core.GlobalPos;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.FriendlyByteBuf;
@@ -36,7 +32,7 @@ public class PlanetsMenuProvider implements ExtraDataMenuProvider {
 
     @Override
     public AbstractContainerMenu createMenu(int containerId, Inventory inventory, Player player) {
-        return new PlanetsMenu(containerId, inventory, Set.of(), Map.of(), Object2BooleanMaps.emptyMap(), Set.of());
+        return new PlanetsMenu(containerId, inventory, Set.of(), Map.of(), Set.of());
     }
 
     @Override
@@ -61,14 +57,6 @@ public class PlanetsMenuProvider implements ExtraDataMenuProvider {
                 buffer.writeUUID(id);
             });
         });
-
-        if (CadmusIntegration.cadmusLoaded()) {
-            buffer.writeVarInt(AdAstraData.planets().size());
-            AdAstraData.planets().keySet().forEach(dimension -> {
-                buffer.writeResourceKey(dimension);
-                buffer.writeBoolean(CadmusIntegration.isClaimed(player.server.getLevel(dimension), player.chunkPosition()));
-            });
-        }
 
         List<GlobalPos> locations = new ArrayList<>();
         AdAstraData.planets().forEach((dimension, planet) ->
@@ -114,22 +102,6 @@ public class PlanetsMenuProvider implements ExtraDataMenuProvider {
         }
 
         return Collections.unmodifiableMap(spaceStationsMap);
-    }
-
-
-    public static Object2BooleanMap<ResourceKey<Level>> createClaimedChunksFromBuf(FriendlyByteBuf buf) {
-        if (CadmusIntegration.cadmusLoaded()) {
-            int dimensionCount = buf.readVarInt();
-            Object2BooleanMap<ResourceKey<Level>> claimedChunks = new Object2BooleanOpenHashMap<>();
-
-            for (int i = 0; i < dimensionCount; i++) {
-                ResourceKey<Level> dimension = buf.readResourceKey(Registries.DIMENSION);
-                claimedChunks.put(dimension, buf.readBoolean());
-            }
-
-            return Object2BooleanMaps.unmodifiable(claimedChunks);
-        }
-        return Object2BooleanMaps.emptyMap();
     }
 
     public static Set<GlobalPos> createSpawnLocationsFromBuf(FriendlyByteBuf buf) {

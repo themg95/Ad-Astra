@@ -89,6 +89,7 @@ public class TemperatureApiImpl implements TemperatureApi {
     public void entityTick(ServerLevel level, LivingEntity entity) {
         if (AdAstraConfig.disableTemperature) return;
         if (entity.getType().is(ModEntityTypeTags.CAN_SURVIVE_IN_SPACE)) return;
+        if (SpaceSuitItem.hasFullSet(entity, ModItemTags.SPACE_RESISTANT_ARMOR)) return;
         if (this.isHot(level, entity.blockPosition())) {
             if (entity.getType().is(ModEntityTypeTags.CAN_SURVIVE_EXTREME_HEAT)) return;
             if (SpaceSuitItem.hasFullSet(entity, ModItemTags.HEAT_RESISTANT_ARMOR)) return;

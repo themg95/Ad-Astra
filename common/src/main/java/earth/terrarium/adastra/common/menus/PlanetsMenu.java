@@ -48,7 +48,6 @@ public class PlanetsMenu extends AbstractContainerMenu {
             inventory,
             PlanetsMenuProvider.createDisabledPlanetsFromBuf(buf),
             PlanetsMenuProvider.createSpaceStationsFromBuf(buf),
-            PlanetsMenuProvider.createClaimedChunksFromBuf(buf),
             PlanetsMenuProvider.createSpawnLocationsFromBuf(buf));
     }
 
@@ -56,8 +55,8 @@ public class PlanetsMenu extends AbstractContainerMenu {
                        Inventory inventory,
                        Set<ResourceLocation> disabledPlanets,
                        Map<ResourceKey<Level>, Map<UUID, Set<SpaceStation>>> spaceStations,
-                       Object2BooleanMap<ResourceKey<Level>> claimedChunks,
-                       Set<GlobalPos> spawnLocations) {
+                       Set<GlobalPos> spawnLocations
+    ) {
         super(ModMenus.PLANETS.get(), containerId);
         this.inventory = inventory;
         player = inventory.player;
@@ -67,7 +66,6 @@ public class PlanetsMenu extends AbstractContainerMenu {
         this.spaceStations = spaceStations;
         this.ingredients = getSpaceStationRecipes();
         this.spawnLocations = spawnLocations;
-        this.claimedChunks.putAll(claimedChunks);
     }
 
     @Override
@@ -94,6 +92,14 @@ public class PlanetsMenu extends AbstractContainerMenu {
 
     public Map<ResourceKey<Level>, List<Pair<ItemStack, Integer>>> ingredients() {
         return ingredients;
+    }
+
+    public void clearClaimedChunks() {
+        claimedChunks.clear();
+    }
+
+    public void setClaimedChunk(ResourceKey<Level> dimension, boolean claimed) {
+        claimedChunks.put(dimension, claimed);
     }
 
     public boolean isClaimed(ResourceKey<Level> dimension) {

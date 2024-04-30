@@ -8,3 +8,4 @@
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1
+- Added Japanese translations - てよくま

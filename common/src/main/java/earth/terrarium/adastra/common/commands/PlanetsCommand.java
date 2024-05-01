@@ -11,6 +11,7 @@ public class PlanetsCommand {
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         dispatcher.register(Commands.literal("adastra")
             .then(Commands.literal("planets")
+                .requires(source -> source.hasPermission(2))
                 .executes(context -> {
                     ServerPlayer player = context.getSource().getPlayerOrException();
                     MenuHooks.openMenu(player, new PlanetsMenuProvider());

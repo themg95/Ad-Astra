@@ -9,3 +9,4 @@
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1
 - Added Japanese translations - てよくま
+- Fixed planet command not requiring OP

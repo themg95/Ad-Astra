@@ -99,7 +99,7 @@ public class FlagBlockEntity extends BlockEntity {
         return saveWithoutMetadata();
     }
 
-    @PlatformOnly("forge")
+    @PlatformOnly("neoforge")
     @SuppressWarnings("unused")
     public AABB getRenderBoundingBox() {
         return new AABB(this.getBlockPos()).inflate(2);

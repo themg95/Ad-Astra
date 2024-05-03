@@ -58,7 +58,7 @@ public class SlidingDoorBlockEntity extends BlockEntity implements TickableBlock
         slideTicks = Mth.clamp(slideTicks + (isOpen ? 3 : -3), 0, 100);
     }
 
-    @PlatformOnly("forge")
+    @PlatformOnly("neoforge")
     @SuppressWarnings("unused")
     public AABB getRenderBoundingBox() {
         return new AABB(this.getBlockPos()).inflate(3);

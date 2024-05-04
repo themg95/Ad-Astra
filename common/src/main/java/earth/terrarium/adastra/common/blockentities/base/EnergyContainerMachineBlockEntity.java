@@ -1,18 +1,14 @@
 package earth.terrarium.adastra.common.blockentities.base;
 
-import earth.terrarium.botarium.common.energy.EnergyApi;
-import earth.terrarium.botarium.common.energy.base.BotariumEnergyBlock;
-import earth.terrarium.botarium.common.energy.base.EnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
-import earth.terrarium.botarium.common.item.ItemStackHolder;
+import earth.terrarium.botarium.energy.EnergyProvider;
+import earth.terrarium.botarium.storage.base.ValueStorage;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class EnergyContainerMachineBlockEntity extends ContainerMachineBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
-
-    protected WrappedBlockEnergyContainer energyContainer;
+public abstract class EnergyContainerMachineBlockEntity extends ContainerMachineBlockEntity implements EnergyProvider.BlockEntity {
+    protected ValueStorage energyContainer;
 
     public EnergyContainerMachineBlockEntity(BlockPos pos, BlockState state, int containerSize) {
         super(pos, state, containerSize);
@@ -31,8 +27,8 @@ public abstract class EnergyContainerMachineBlockEntity extends ContainerMachine
         }
     }
 
-    public WrappedBlockEnergyContainer getEnergyStorage() {
-        return getEnergyStorage(level, worldPosition, getBlockState(), this, null);
+    public ValueStorage getEnergyStorage() {
+        return getEnergy(null);
     }
 
     public void extractBatterySlot() {

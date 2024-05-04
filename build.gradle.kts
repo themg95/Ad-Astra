@@ -8,7 +8,7 @@ plugins {
     java
     id("maven-publish")
     id("com.teamresourceful.resourcefulgradle") version "0.0.+"
-    id("dev.architectury.loom") version "1.4-SNAPSHOT" apply false
+    id("dev.architectury.loom") version "1.6.9999-PR.207+kneelawk" apply false
     id("architectury-plugin") version "3.4-SNAPSHOT"
     id("com.github.johnrengelman.shadow") version "7.1.2" apply false
 }
@@ -93,27 +93,30 @@ subprojects {
 
             officialMojangMappings()
 
-            parchment(create(group = "org.parchmentmc.data", name = "parchment-1.20.3", version = parchmentVersion))
+            parchment(create(group = "org.parchmentmc.data", name = "parchment-1.20.6", version = parchmentVersion))
         })
 
-        "modApi"(group = "com.teamresourceful.resourcefullib", name = "resourcefullib-$modLoader-$minecraftVersion", version = resourcefulLibVersion)
-        "modApi"(group = "com.teamresourceful.resourcefulconfig", name = "resourcefulconfig-$modLoader-$minecraftVersion", version = resourcefulConfigVersion)
+        "modApi"(group = "com.teamresourceful.resourcefullib", name = "resourcefullib-$modLoader-1.20.5", version = resourcefulLibVersion)
+        "modApi"(group = "com.teamresourceful.resourcefulconfig", name = "resourcefulconfig-$modLoader-1.20.5", version = resourcefulConfigVersion)
         "modApi"(group = "earth.terrarium.botarium", name = "botarium-$modLoader-$minecraftVersion", version = botariumVersion)
         if (isCommon) {
             implementation(group = "javazoom", name = "jlayer", version = "1.0.1")
-            "modApi"(group = "mezz.jei", name = "jei-$minecraftVersion-common-api", version = jeiVersion)
+            // "modApi"(group = "mezz.jei", name = "jei-$minecraftVersion-common-api", version = jeiVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-api", version = reiVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-default-plugin", version = reiVersion)
             implementation("annotationProcessor"(group = "io.github.llamalad7", name = "mixinextras-common", version = mixinExtrasVersion))
 
+            /*
             "modCompileOnly"(group = "earth.terrarium.cadmus", name = "cadmus-$modLoader-$minecraftVersion", version = cadmusVersion) {
                 isTransitive = false
             }
             "modCompileOnly"(group = "earth.terrarium.argonauts", name = "argonauts-$modLoader-$minecraftVersion", version = argonautsVersion) {
                 isTransitive = false
             }
+             */
         } else {
             "include"(implementation(group = "javazoom", name = "jlayer", version = "1.0.1"))
+            /*
             "modLocalRuntime"(group = "earth.terrarium.cadmus", name = "cadmus-$modLoader-$minecraftVersion", version = cadmusVersion) {
                 isTransitive = false
             }
@@ -121,7 +124,12 @@ subprojects {
                 isTransitive = false
             }
 
-            "modLocalRuntime"(group = "earth.terrarium.athena", name = "athena-$modLoader-$minecraftVersion", version = athenaVersion)
+            modLocalRuntime(group = "mezz.jei", name = "jei-$minecraftVersion-$modLoader", version = jeiVersion) {
+                isTransitive = false
+            }
+             */
+
+            "modLocalRuntime"(group = "earth.terrarium.athena", name = "athena-$modLoader-1.20.5", version = athenaVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-api-$modLoader", version = reiVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-default-plugin-$modLoader", version = reiVersion)
 //            "modLocalRuntime"(group = "vazkii.patchouli", name = "Patchouli", version = "$minecraftVersion-$patchouliVersion-${modLoader.uppercase()}")

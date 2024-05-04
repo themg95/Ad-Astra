@@ -33,10 +33,6 @@ dependencies {
 
     neoForge(group = "net.neoforged", name = "neoforge", version = neoforgeVersion)
 
-    modLocalRuntime(group = "mezz.jei", name = "jei-$minecraftVersion-neoforge", version = jeiVersion) {
-        isTransitive = false
-    }
-
 //    modLocalRuntime(group = "maven.modrinth", name = "jade", version = "13.2.2")
 //    modLocalRuntime(group = "maven.modrinth", name = "mekanism", version = "10.4.2.16")
 

@@ -7,6 +7,7 @@ import earth.terrarium.adastra.client.config.AdAstraConfigClient;
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.Configuration;
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.ConfigurationEntry;
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.ConfigurationType;
+import earth.terrarium.adastra.common.blocks.machines.GravityNormalizerBlock;
 import earth.terrarium.adastra.common.config.AdAstraConfig;
 import earth.terrarium.adastra.common.config.MachineConfig;
 import earth.terrarium.adastra.common.constants.ConstantComponents;
@@ -124,7 +125,7 @@ public class OxygenDistributorBlockEntity extends OxygenLoaderBlockEntity {
                 accumulatedFluid -= wholeBuckets;
             }
 
-            if (time % MachineConfig.distributionRefreshRate == 0) tickOxygen(level, pos);
+            if (time % MachineConfig.distributionRefreshRate == 0) tickOxygen(level, pos, state);
 
             if (time % 200 == 0) {
                 level.playSound(null, pos, ModSoundEvents.OXYGEN_OUTTAKE.get(), SoundSource.BLOCKS, 0.2f, 1);
@@ -167,9 +168,14 @@ public class OxygenDistributorBlockEntity extends OxygenLoaderBlockEntity {
         ((BiFluidContainer) getFluidContainer().container()).output().internalExtract(getFluidContainer().getFluids().get(1).copyWithAmount(fluidAmount), false);
     }
 
-    protected void tickOxygen(ServerLevel level, BlockPos pos) {
+    protected void tickOxygen(ServerLevel level, BlockPos pos, BlockState state) {
         limit = MachineConfig.maxDistributionBlocks;
-        Set<BlockPos> positions = FloodFill3D.run(level, pos.above(), limit, FloodFill3D.TEST_FULL_SEAL, true);
+        Direction offset = switch (state.getValue(GravityNormalizerBlock.FACE)) {
+            case FLOOR -> Direction.UP;
+            case CEILING -> Direction.DOWN;
+            default -> state.getValue(GravityNormalizerBlock.FACING);
+        };
+        Set<BlockPos> positions = FloodFill3D.run(level, pos.relative(offset), limit, FloodFill3D.TEST_FULL_SEAL, true);
 
         OxygenApi.API.setOxygen(level, positions, true);
         TemperatureApi.API.setTemperature(level, positions, PlanetConstants.COMFY_EARTH_TEMPERATURE); // TODO: move to Temperature Regulator machine

@@ -7,6 +7,7 @@ import earth.terrarium.adastra.common.blockentities.base.EnergyContainerMachineB
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.Configuration;
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.ConfigurationEntry;
 import earth.terrarium.adastra.common.blockentities.base.sideconfig.ConfigurationType;
+import earth.terrarium.adastra.common.blocks.machines.GravityNormalizerBlock;
 import earth.terrarium.adastra.common.config.MachineConfig;
 import earth.terrarium.adastra.common.constants.ConstantComponents;
 import earth.terrarium.adastra.common.menus.machines.GravityNormalizerMenu;
@@ -103,7 +104,7 @@ public class GravityNormalizerBlockEntity extends EnergyContainerMachineBlockEnt
             getEnergyStorage().internalExtract(calculateEnergyPerTick(), false);
             setLit(true);
 
-            if (time % MachineConfig.distributionRefreshRate == 0) tickGravity(level, pos);
+            if (time % MachineConfig.distributionRefreshRate == 0) tickGravity(level, pos, state);
 
             if (time % 200 == 0) {
                 level.playSound(null, pos, ModSoundEvents.GRAVITY_NORMALIZER_IDLE.get(), SoundSource.BLOCKS, 0.3f, 1);
@@ -133,9 +134,14 @@ public class GravityNormalizerBlockEntity extends EnergyContainerMachineBlockEnt
         return getEnergyStorage().internalExtract(energy, true) >= energy;
     }
 
-    protected void tickGravity(ServerLevel level, BlockPos pos) {
+    protected void tickGravity(ServerLevel level, BlockPos pos, BlockState state) {
         limit = MachineConfig.maxDistributionBlocks;
-        Set<BlockPos> positions = FloodFill3D.run(level, pos.above(), limit, FloodFill3D.TEST_FULL_SEAL, false);
+        Direction offset = switch (state.getValue(GravityNormalizerBlock.FACE)) {
+            case FLOOR -> Direction.UP;
+            case CEILING -> Direction.DOWN;
+            default -> state.getValue(GravityNormalizerBlock.FACING);
+        };
+        Set<BlockPos> positions = FloodFill3D.run(level, pos.relative(offset), limit, FloodFill3D.TEST_FULL_SEAL, false);
 
         GravityApi.API.setGravity(level, positions, targetGravity);
         this.resetLastDistributedBlocks(positions);

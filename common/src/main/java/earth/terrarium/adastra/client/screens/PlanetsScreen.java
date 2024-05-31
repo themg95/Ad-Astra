@@ -405,7 +405,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     // StringUtils only replaces the first word so WordUtils is needed
     @SuppressWarnings("deprecation")
-    private String title(String string) {
+    public static String title(String string) {
         return WordUtils.capitalizeFully(string.replace("_", " "));
     }
 }

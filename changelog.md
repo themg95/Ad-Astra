@@ -11,6 +11,7 @@
 - Fixed scrolling not resting in planet screen when navigating through the menu
 - Fixed planet buttons being clickable outside of the visible scroll area.
 - Fixed solar systems in the planet screen being ordered randomly. It's now sorted alphabetically.
+- Made planet names fallback to their IDs in title case if it can't find the translations
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1

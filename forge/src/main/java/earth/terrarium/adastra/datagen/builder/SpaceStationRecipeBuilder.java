@@ -2,7 +2,7 @@ package earth.terrarium.adastra.datagen.builder;
 
 import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
-import com.teamresourceful.resourcefullib.common.lib.Constants;
+import earth.terrarium.adastra.AdAstra;
 import earth.terrarium.adastra.common.recipes.SpaceStationRecipe;
 import earth.terrarium.adastra.common.recipes.base.IngredientHolder;
 import earth.terrarium.adastra.common.registry.ModRecipeSerializers;
@@ -79,7 +79,7 @@ public class SpaceStationRecipeBuilder implements RecipeBuilder {
         public void serializeRecipeData(@NotNull JsonObject json) {
             SpaceStationRecipe.codec(id)
                 .encodeStart(JsonOps.INSTANCE, new SpaceStationRecipe(id, ingredients, dimension, structure))
-                .resultOrPartial(Constants.LOGGER::error)
+                .resultOrPartial(AdAstra.LOGGER::error)
                 .ifPresent(out ->
                     out.getAsJsonObject().entrySet().forEach(entry -> json.add(entry.getKey(), entry.getValue()))
                 );

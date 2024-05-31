@@ -59,6 +59,7 @@ dependencies {
 
     modLocalRuntime(group = "maven.modrinth", name = "jade", version = "2iRQrBk4")
     modLocalRuntime(group = "maven.modrinth", name = "mekanism", version = "10.4.2.16")
+    modLocalRuntime(group = "maven.modrinth", name = "modular-routers", version = "12.1.1")
 
     forgeRuntimeLibrary("com.teamresourceful:yabn:1.0.3")
     forgeRuntimeLibrary("com.teamresourceful:bytecodecs:1.0.2")

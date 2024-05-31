@@ -1,5 +1,6 @@
 package earth.terrarium.adastra;
 
+import com.mojang.logging.LogUtils;
 import com.teamresourceful.resourcefulconfig.common.config.Configurator;
 import earth.terrarium.adastra.api.systems.GravityApi;
 import earth.terrarium.adastra.api.systems.OxygenApi;
@@ -17,6 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
+import org.slf4j.Logger;
 
 import java.util.function.BiConsumer;
 
@@ -24,6 +26,7 @@ public class AdAstra {
 
     public static final String MOD_ID = "ad_astra";
     public static final Configurator CONFIGURATOR = new Configurator();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public static void init() {
         CONFIGURATOR.registerConfig(AdAstraConfig.class);

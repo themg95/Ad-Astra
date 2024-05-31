@@ -2,7 +2,7 @@ package earth.terrarium.adastra.datagen.builder;
 
 import com.google.gson.JsonObject;
 import com.mojang.serialization.JsonOps;
-import com.teamresourceful.resourcefullib.common.lib.Constants;
+import earth.terrarium.adastra.AdAstra;
 import earth.terrarium.adastra.common.recipes.machines.CompressingRecipe;
 import earth.terrarium.adastra.common.registry.ModRecipeSerializers;
 import net.minecraft.advancements.Advancement;
@@ -89,7 +89,7 @@ public class CompressingRecipeBuilder implements RecipeBuilder {
         public void serializeRecipeData(@NotNull JsonObject json) {
             CompressingRecipe.codec(id)
                 .encodeStart(JsonOps.INSTANCE, new CompressingRecipe(id, cookingtime, energy, ingredient, result))
-                .resultOrPartial(Constants.LOGGER::error)
+                .resultOrPartial(AdAstra.LOGGER::error)
                 .ifPresent(out ->
                     out.getAsJsonObject().entrySet().forEach(entry -> json.add(entry.getKey(), entry.getValue()))
                 );

@@ -28,12 +28,14 @@ import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
@@ -41,6 +43,7 @@ import org.apache.commons.lang3.text.WordUtils;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
@@ -96,6 +99,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
         }
 
         backButton = addRenderableWidget(new LabeledImageButton(10, height / 2 - 85, 12, 12, 0, 12, 12, BACK_BUTTON, 12, 24, b -> {
+            if (pageIndex != 2) this.scrollAmount = 0;
             pageIndex--;
             rebuildWidgets();
         }));
@@ -113,14 +117,16 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
             addSpaceStatonButton.active = selectedPlanet != null && menu.canConstruct(selectedPlanet.orbitIfPresent()) && !menu.isInSpaceStation(selectedPlanet.orbitIfPresent());
         }
 
-
         backButton.visible = pageIndex > (hasMultipleSolarSystems ? 0 : 1);
         addSpaceStatonButton.visible = pageIndex == 2 && selectedPlanet != null;
     }
 
     private void createSolarSystemButtons() {
         selectedSolarSystem = null;
-        AdAstraData.solarSystems().forEach(solarSystem -> {
+
+        List<ResourceLocation> solarSystems = new ArrayList<>(AdAstraData.solarSystems());
+        solarSystems.sort(Comparator.comparing(ResourceLocation::getPath));
+        solarSystems.forEach(solarSystem -> {
             var button = addWidget(new LabeledImageButton(10, 0, 99, 20, 0, 0, 20, BUTTON, 99, 40, b -> {
                 pageIndex = 1;
                 selectedSolarSystem = solarSystem;
@@ -145,7 +151,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     private void createSelectedPlanetButtons() {
         if (selectedPlanet == null) return;
-        var pos = menu.getLandingPos(selectedPlanet.dimension(), true);
+        BlockPos pos = menu.getLandingPos(selectedPlanet.dimension(), true);
         var button = addRenderableWidget(new LabeledImageButton(
             114, height / 2 - 77, 99, 20, 0, 0, 20, BUTTON,
             99, 40, b -> land(selectedPlanet.dimension()), ConstantComponents.LAND));
@@ -157,7 +163,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     private void addSpaceStationButtons(ResourceKey<Level> dimension) {
         menu.getOwnedAndTeamSpaceStations(dimension).forEach(station -> {
-            var pos = station.getSecond().position();
+            ChunkPos pos = station.getSecond().position();
             var button = addWidget(new LabeledImageButton(114, height / 2, 99, 20, 0, 0, 20, BUTTON, 99, 40, b ->
                 landOnSpaceStation(dimension, pos), station.getSecond().name()));
             button.setTooltip(getSpaceStationLandTooltip(dimension, pos, station.getFirst()));
@@ -174,7 +180,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
 
     public Tooltip getSpaceStationRecipeTooltip(ResourceKey<Level> planet) {
         List<Component> tooltip = new ArrayList<>();
-        var pos = menu.getLandingPos(planet, false);
+        BlockPos pos = menu.getLandingPos(planet, false);
         tooltip.add(Component.translatable("tooltip.ad_astra.construct_space_station_at", menu.getPlanetName(planet), pos.getX(), pos.getZ()).withStyle(ChatFormatting.AQUA));
 
         if (menu.isInSpaceStation(planet) || menu.isClaimed(planet)) {
@@ -206,6 +212,9 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
         renderButtons(graphics, mouseX, mouseY, partialTick);
         backButton.visible = pageIndex > (hasMultipleSolarSystems ? 0 : 1);
         addSpaceStatonButton.visible = pageIndex == 2 && selectedPlanet != null;
+
+        // Prevent buttons from being pressed when outside view area.
+        buttons.forEach(button -> button.active = button.getY() > height / 2 - 63 && button.getY() < height / 2 + 88);
     }
 
     private void renderButtons(GuiGraphics graphics, int mouseX, int mouseY, float partialTick) {
@@ -361,11 +370,12 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
     @Override
     public void onClose() {
         if (pageIndex > 0) {
+            if (pageIndex != 2) this.scrollAmount = 0;
             pageIndex--;
             rebuildWidgets();
             return;
         }
-        var player = menu.player();
+        Player player = menu.player();
         if (player.isCreative() || player.isSpectator()) super.onClose();
         else if (!(player.getVehicle() instanceof Rocket)) super.onClose();
     }

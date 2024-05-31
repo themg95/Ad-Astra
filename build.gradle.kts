@@ -108,7 +108,7 @@ subprojects {
         )
         "modApi"(
             group = "earth.terrarium.botarium",
-            name = "botarium-$modLoader-$minecraftVersion",
+            name = "botarium-$modLoader-1.20.4",
             version = botariumVersion
         )
         if (isCommon) {
@@ -177,7 +177,7 @@ subprojects {
 
     tasks.processResources {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        filesMatching(listOf("META-INF/mods.toml", "fabric.mod.json")) {
+        filesMatching(listOf("META-INF/neoforge.mods.toml", "fabric.mod.json")) {
             expand("version" to project.version)
         }
     }

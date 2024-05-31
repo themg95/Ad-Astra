@@ -15,6 +15,7 @@
 - Fixed solar systems in the planet screen being ordered randomly. It's now sorted alphabetically.
 - Made planet names fallback to their IDs in title case if it can't find the translations
 - Fixed Etrionic Blast Furnace Cheese (#494)
+- Fixed oxygen distributor and gravity normalizer always running from the position above regardless of the direction it's facing. (#502)
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1

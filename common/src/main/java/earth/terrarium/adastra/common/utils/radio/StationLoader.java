@@ -4,9 +4,10 @@ import com.google.gson.JsonObject;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.JsonOps;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.teamresourceful.resourcefullib.common.lib.Constants;
 import com.teamresourceful.resourcefullib.common.utils.GsonHelpers;
 import com.teamresourceful.resourcefullib.common.utils.WebUtils;
+import earth.terrarium.adastra.AdAstra;
+import org.jetbrains.annotations.Nullable;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,12 +44,13 @@ public class StationLoader {
         return STATIONS.stream().anyMatch(station -> station.url().equals(url));
     }
 
+    @Nullable
     private static JsonObject readLocalStations() {
         String stationsFile = System.getProperty("adastra.stations");
         if (stationsFile != null) {
             try {
                 String fileName = stationsFile.indexOf('/') == -1 ? stationsFile : stationsFile.substring(stationsFile.lastIndexOf('/') + 1);
-                Constants.LOGGER.info("Loading stations from " + fileName);
+                AdAstra.LOGGER.info("Loading stations from " + fileName);
                 return GsonHelpers.parseJson(Files.readString(Path.of(stationsFile))).orElse(null);
             } catch (Exception ignored) {
                 return null;

@@ -5,8 +5,9 @@
 - Prevent sliding door blocks from being pushed with pistons.
 - Fixed crash when placing water on launchpads and sliding door blocks and updating them.
 - Added missing ore tags.
+- Fixed planet command not requiring OP
+- Fixed armor values for space suit chest and leggings reversed. (#551)
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1
 - Added Japanese translations - てよくま
-- Fixed planet command not requiring OP

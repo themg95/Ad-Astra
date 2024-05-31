@@ -6,9 +6,11 @@ import earth.terrarium.adastra.common.utils.FluidUtils;
 import earth.terrarium.adastra.common.utils.KeybindManager;
 import earth.terrarium.adastra.common.utils.TooltipUtils;
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem;
+import earth.terrarium.botarium.common.energy.base.EnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
 import earth.terrarium.botarium.common.fluid.FluidConstants;
+import earth.terrarium.botarium.common.item.ItemStackHolder;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -76,10 +78,10 @@ public class JetSuitItem extends SpaceSuitItem implements BotariumEnergyItem<Wra
 
         if (KeybindManager.sprintDown(player)) {
             fullFlight(player);
-            consume(player, stack, 100);
+            consume(player, stack, 100, slotId);
         } else {
             upwardsFlight(player);
-            consume(player, stack, 50);
+            consume(player, stack, 50, slotId);
         }
     }
 
@@ -104,9 +106,13 @@ public class JetSuitItem extends SpaceSuitItem implements BotariumEnergyItem<Wra
         return player.isCreative() || getEnergyStorage(stack).getStoredEnergy() > 0;
     }
 
-    private void consume(Player player, ItemStack stack, int amount) {
+    private void consume(Player player, ItemStack stack, int amount, int slotId) {
         if (player.isCreative() || player.isSpectator() || player.level().isClientSide()) return;
-        getEnergyStorage(stack).internalExtract(amount, false);
+        ItemStackHolder stackHolder = new ItemStackHolder(stack);
+        EnergyContainer container = EnergyContainer.of(stackHolder);
+        if (container == null) return;
+        container.internalExtract(amount, false);
+        player.getInventory().armor.set(slotId, stackHolder.getStack());
     }
 
     protected boolean isFullFlightEnabled(Player player) {

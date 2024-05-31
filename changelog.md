@@ -7,6 +7,7 @@
 - Added missing ore tags.
 - Fixed planet command not requiring OP
 - Fixed armor values for space suit chest and leggings reversed. (#551)
+- Fixed Etrionic Capacitor not draining when powering jet suit.
 - Fixed space suit not transparent on neoforge.
 - Fixed sliding door and flag blocks invisible on neoforge when looking at them in certain angles.
 - Added Russian translations (#509) - MaleSkam

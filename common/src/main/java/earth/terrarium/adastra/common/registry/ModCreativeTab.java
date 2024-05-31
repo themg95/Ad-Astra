@@ -1,9 +1,12 @@
 package earth.terrarium.adastra.common.registry;
 
 import com.teamresourceful.resourcefullib.common.item.tabs.ResourcefulCreativeTab;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
 import earth.terrarium.adastra.AdAstra;
 import earth.terrarium.adastra.common.utils.EnergyUtils;
 import earth.terrarium.adastra.common.utils.FluidUtils;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -16,6 +19,7 @@ import java.util.stream.Stream;
 @SuppressWarnings({"unused", "SameParameterValue"})
 public class ModCreativeTab {
 
+    public static final ResourcefulRegistry<CreativeModeTab> TABS = ResourcefulRegistries.create(BuiltInRegistries.CREATIVE_MODE_TAB, AdAstra.MOD_ID);
     public static final Supplier<CreativeModeTab> TAB = new ResourcefulCreativeTab(new ResourceLocation(AdAstra.MOD_ID, "main"))
         .setItemIcon(ModItems.TIER_1_ROCKET)
         .addContent(ModCreativeTab::getCustomNbtItems)
@@ -42,6 +46,4 @@ public class ModCreativeTab {
 
         return list.stream();
     }
-
-    public static void init() {} // NO-OP
 }

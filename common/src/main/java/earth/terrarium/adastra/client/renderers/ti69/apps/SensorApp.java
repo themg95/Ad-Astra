@@ -28,9 +28,9 @@ public class SensorApp implements Ti69App {
         Component oxygen = data.oxygen() ? ConstantComponents.TRUE : ConstantComponents.FALSE;
         Component temperature = Component.translatable("text.ad_astra.temperature", data.temperature());
         Component gravity = Component.translatable("text.ad_astra.gravity", Math.round(data.gravity() * PlanetConstants.EARTH_GRAVITY * 1000) / 1000f);
-        font.drawInBatch(oxygen, 12.0f, 17.0f, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
-        font.drawInBatch(temperature, 12.0f, 30.0f, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
-        font.drawInBatch(gravity, 12.0f, 43.0f, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
+        font.drawInBatch(oxygen, 12, 17, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
+        font.drawInBatch(temperature, 12, 30, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
+        font.drawInBatch(gravity, 12, 43, 0xFFFFFF, false, matrix4f, bufferSource, Font.DisplayMode.NORMAL, 0xFFFFFF, LightTexture.FULL_BRIGHT);
 
         this.renderIcon(matrix4f, Ti69Renderer.ICONS, 0, 17, 24, 0, 8, 8, 32, 32);
         this.renderIcon(matrix4f, Ti69Renderer.ICONS, 0, 30, 24, 8, 8, 8, 32, 32);

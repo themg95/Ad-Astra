@@ -96,15 +96,33 @@ subprojects {
             parchment(create(group = "org.parchmentmc.data", name = "parchment-1.20.6", version = parchmentVersion))
         })
 
-        "modApi"(group = "com.teamresourceful.resourcefullib", name = "resourcefullib-$modLoader-1.20.5", version = resourcefulLibVersion)
-        "modApi"(group = "com.teamresourceful.resourcefulconfig", name = "resourcefulconfig-$modLoader-1.20.5", version = resourcefulConfigVersion)
-        "modApi"(group = "earth.terrarium.botarium", name = "botarium-$modLoader-$minecraftVersion", version = botariumVersion)
+        "modApi"(
+            group = "com.teamresourceful.resourcefullib",
+            name = "resourcefullib-$modLoader-1.20.5",
+            version = resourcefulLibVersion
+        )
+        "modApi"(
+            group = "com.teamresourceful.resourcefulconfig",
+            name = "resourcefulconfig-$modLoader-1.20.5",
+            version = resourcefulConfigVersion
+        )
+        "modApi"(
+            group = "earth.terrarium.botarium",
+            name = "botarium-$modLoader-$minecraftVersion",
+            version = botariumVersion
+        )
         if (isCommon) {
             implementation(group = "javazoom", name = "jlayer", version = "1.0.1")
             // "modApi"(group = "mezz.jei", name = "jei-$minecraftVersion-common-api", version = jeiVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-api", version = reiVersion)
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-default-plugin", version = reiVersion)
-            implementation("annotationProcessor"(group = "io.github.llamalad7", name = "mixinextras-common", version = mixinExtrasVersion))
+            implementation(
+                "annotationProcessor"(
+                    group = "io.github.llamalad7",
+                    name = "mixinextras-common",
+                    version = mixinExtrasVersion
+                )
+            )
 
             /*
             "modCompileOnly"(group = "earth.terrarium.cadmus", name = "cadmus-$modLoader-$minecraftVersion", version = cadmusVersion) {
@@ -129,9 +147,17 @@ subprojects {
             }
              */
 
-            "modLocalRuntime"(group = "earth.terrarium.athena", name = "athena-$modLoader-1.20.5", version = athenaVersion)
+            "modLocalRuntime"(
+                group = "earth.terrarium.athena",
+                name = "athena-$modLoader-1.20.5",
+                version = athenaVersion
+            )
             "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-api-$modLoader", version = reiVersion)
-            "modCompileOnly"(group = "me.shedaniel", name = "RoughlyEnoughItems-default-plugin-$modLoader", version = reiVersion)
+            "modCompileOnly"(
+                group = "me.shedaniel",
+                name = "RoughlyEnoughItems-default-plugin-$modLoader",
+                version = reiVersion
+            )
 //            "modLocalRuntime"(group = "vazkii.patchouli", name = "Patchouli", version = "$minecraftVersion-$patchouliVersion-${modLoader.uppercase()}")
 //            "modLocalRuntime"(group = "com.lowdragmc.shimmer", name = "Shimmer-$modLoader", version = "$minecraftVersion-$shimmerVersion") { isTransitive = false }
         }
@@ -218,6 +244,12 @@ subprojects {
             }
         }
     }
+
+    idea {
+        module {
+            excludeDirs.add(file("run"))
+        }
+    }
 }
 
 resourcefulGradle {
@@ -230,13 +262,15 @@ resourcefulGradle {
             val forgeLink: String? = System.getenv("FORGE_RELEASE_URL")
 
             source.set(file("templates/embed.json.template"))
-            injectedValues.set(mapOf(
+            injectedValues.set(
+                mapOf(
                     "minecraft" to minecraftVersion,
                     "version" to version,
                     "changelog" to StringEscapeUtils.escapeJava(changelog),
                     "fabric_link" to fabricLink,
                     "forge_link" to forgeLink,
-            ))
+                )
+            )
         }
     }
 }

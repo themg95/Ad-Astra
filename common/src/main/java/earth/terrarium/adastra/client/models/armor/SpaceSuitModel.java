@@ -15,6 +15,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartNames;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.FastColor;
@@ -70,7 +71,7 @@ public class SpaceSuitModel extends HumanoidModel<LivingEntity> {
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
         if ("neoforge".equals(ArchitecturyTarget.getCurrentTarget()) && texture != null) {
-            var bufferSource = Minecraft.getInstance().renderBuffers().bufferSource();
+            MultiBufferSource.BufferSource bufferSource = Minecraft.getInstance().renderBuffers().bufferSource();
             buffer = bufferSource.getBuffer(RenderType.entityTranslucent(texture));
         }
 

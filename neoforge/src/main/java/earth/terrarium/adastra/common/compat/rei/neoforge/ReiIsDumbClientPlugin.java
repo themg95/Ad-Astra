@@ -11,5 +11,4 @@ import me.shedaniel.rei.forge.REIPluginClient;
  * it so that you need to have a dummy class in the forge package to make it work.
  */
 @REIPluginClient
-public class ReiIsDumbClientPlugin extends AdAstraReiPlugin {
-}
+public class ReiIsDumbClientPlugin extends AdAstraReiPlugin {}

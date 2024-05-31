@@ -5,8 +5,10 @@
 - Prevent sliding door blocks from being pushed with pistons.
 - Fixed crash when placing water on launchpads and sliding door blocks and updating them.
 - Added missing ore tags.
+- Fixed planet command not requiring OP
+- Fixed space suit not transparent on neoforge.
+- Fixed sliding door and flag blocks invisible on neoforge when looking at them in certain angles.
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1
 - Added Japanese translations - てよくま
-- Fixed planet command not requiring OP

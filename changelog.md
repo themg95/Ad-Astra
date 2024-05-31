@@ -10,6 +10,9 @@
 - Fixed Etrionic Capacitor not draining when powering jet suit.
 - Fixed space suit not transparent on neoforge.
 - Fixed sliding door and flag blocks invisible on neoforge when looking at them in certain angles.
+- Fixed scrolling not resting in planet screen when navigating through the menu
+- Fixed planet buttons being clickable outside of the visible scroll area.
+- Fixed solar systems in the planet screen being ordered randomly. It's now sorted alphabetically.
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1

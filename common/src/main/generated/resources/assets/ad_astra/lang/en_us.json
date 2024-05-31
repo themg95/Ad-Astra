@@ -623,7 +623,7 @@
   "item.ad_astra.zombified_pygro_spawn_egg": "Zombified Pygro Spawn Egg",
   "itemGroup.ad_astra.main": "Ad Astra",
   "key.ad_astra.open_radio": "Open radio",
-  "key.ad_astra.toggle_suit_flight": "Toggle suit flight",
+  "key.ad_astra.toggle_suit_flight": "Toggle Suit Flight",
   "key.categories.adastra": "Ad Astra",
   "message.ad_astra.flag.not_owner": "You do not own this flag!",
   "message.ad_astra.hold_to_dismount": "Hold SHIFT for %.1f seconds to dismount",

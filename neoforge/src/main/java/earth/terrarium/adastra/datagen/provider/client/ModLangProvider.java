@@ -102,7 +102,7 @@ public class ModLangProvider extends LanguageProvider {
         add("death.attack.acid_rain", "%1$s was melted by acid rain");
         add("death.attack.acid_rain.player", "%1$s was melted by acid rain whilst trying to escape %2$s");
 
-        add(ConstantComponents.TOGGLE_SUIT_FLIGHT_KEY, "Toggle suit flight");
+        add(ConstantComponents.TOGGLE_SUIT_FLIGHT_KEY, "Toggle Suit Flight");
         add(ConstantComponents.OPEN_RADIO_KEY, "Open radio");
         add(ConstantComponents.AD_ASTRA_CATEGORY, "Ad Astra");
 

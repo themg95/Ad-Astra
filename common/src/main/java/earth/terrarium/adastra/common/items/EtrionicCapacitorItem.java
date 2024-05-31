@@ -10,6 +10,7 @@ import earth.terrarium.botarium.common.energy.base.EnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
 import earth.terrarium.botarium.common.item.ItemStackHolder;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -34,7 +35,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
     }
 
     public static boolean active(ItemStack stack) {
-        var tag = stack.getOrCreateTag();
+        CompoundTag tag = stack.getOrCreateTag();
         if (tag.contains(ACTIVE_TAG)) {
             return tag.getBoolean(ACTIVE_TAG);
         }
@@ -42,14 +43,14 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
     }
 
     public static boolean toggleActive(ItemStack stack) {
-        var tag = stack.getOrCreateTag();
-        var active = active(stack);
+        CompoundTag tag = stack.getOrCreateTag();
+        boolean active = active(stack);
         tag.putBoolean(ACTIVE_TAG, !active);
         return !active;
     }
 
     public static DistributionMode mode(ItemStack stack) {
-        var tag = stack.getOrCreateTag();
+        CompoundTag tag = stack.getOrCreateTag();
         if (tag.contains(MODE_TAG)) {
             return DistributionMode.values()[tag.getByte(MODE_TAG)];
         }
@@ -57,9 +58,9 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
     }
 
     public static DistributionMode toggleMode(ItemStack stack) {
-        var tag = stack.getOrCreateTag();
-        var mode = mode(stack);
-        var toggled = mode == DistributionMode.SEQUENTIAL ? DistributionMode.ROUND_ROBIN : DistributionMode.SEQUENTIAL;
+        CompoundTag tag = stack.getOrCreateTag();
+        DistributionMode mode = mode(stack);
+        DistributionMode toggled = mode == DistributionMode.SEQUENTIAL ? DistributionMode.ROUND_ROBIN : DistributionMode.SEQUENTIAL;
         tag.putByte(MODE_TAG, (byte) toggled.ordinal());
         return toggled;
     }
@@ -83,7 +84,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
 
     @Override
     public void appendHoverText(@NotNull ItemStack stack, @Nullable Level level, @NotNull List<Component> tooltipComponents, @NotNull TooltipFlag isAdvanced) {
-        var energy = getEnergyStorage(stack);
+        WrappedItemEnergyContainer energy = getEnergyStorage(stack);
         tooltipComponents.add(TooltipUtils.getEnergyComponent(energy.getStoredEnergy(), energy.getMaxCapacity()));
         tooltipComponents.add(TooltipUtils.getActiveInactiveComponent(active(stack)));
         tooltipComponents.add(TooltipUtils.getDistributionModeComponent(mode(stack)));
@@ -97,10 +98,10 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
         if (level.isClientSide()) {
             return InteractionResultHolder.pass(player.getItemInHand(usedHand));
         }
-        var stack = player.getItemInHand(usedHand);
+        ItemStack stack = player.getItemInHand(usedHand);
 
         if (player.isShiftKeyDown()) {
-            var mode = toggleMode(stack);
+            DistributionMode mode = toggleMode(stack);
             player.displayClientMessage(mode == DistributionMode.SEQUENTIAL ? ConstantComponents.CHANGE_MODE_SEQUENTIAL : ConstantComponents.CHANGE_MODE_ROUND_ROBIN, true);
         } else {
             boolean active = toggleActive(stack);
@@ -117,7 +118,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
         if (!active(stack)) return;
         if (!(entity instanceof Player player)) return;
         Inventory inventory = player.getInventory();
-        var container = getEnergyStorage(stack);
+        WrappedItemEnergyContainer container = getEnergyStorage(stack);
         if (container.getStoredEnergy() == 0) return;
         ItemStackHolder from = new ItemStackHolder(stack);
         switch (mode(stack)) {
@@ -129,7 +130,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
 
     public void distributeSequential(ItemStackHolder from, long maxExtract, Inventory inventory) {
         for (int i = inventory.getContainerSize() - 1; i >= 0; i--) {
-            var stack = inventory.getItem(i);
+            ItemStack stack = inventory.getItem(i);
             if (stack.isEmpty() || stack.is(this)) continue;
             ItemStackHolder to = new ItemStackHolder(stack);
             long moved = EnergyApi.moveEnergy(from, to, maxExtract, false);
@@ -148,7 +149,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
         if (energyItems == 0) return;
 
         for (int i = 0; i < inventory.getContainerSize(); i++) {
-            var stack = inventory.getItem(i);
+            ItemStack stack = inventory.getItem(i);
             if (stack.is(this)) continue;
             if (stack.isEmpty() || stack.is(this)) continue;
             ItemStackHolder to = new ItemStackHolder(stack);
@@ -164,7 +165,7 @@ public class EtrionicCapacitorItem extends Item implements BotariumEnergyItem<Wr
 
     @Override
     public int getBarWidth(@NotNull ItemStack stack) {
-        var energyStorage = getEnergyStorage(stack);
+        WrappedItemEnergyContainer energyStorage = getEnergyStorage(stack);
         return (int) (((double) energyStorage.getStoredEnergy() / energyStorage.getMaxCapacity()) * 13);
     }
 

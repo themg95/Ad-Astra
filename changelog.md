@@ -7,6 +7,7 @@
 - Added missing ore tags.
 - Fixed planet command not requiring OP
 - Fixed armor values for space suit chest and leggings reversed. (#551)
+- Fixed Etrionic Capacitor not draining when powering jet suit.
 - Added Russian translations (#509) - MaleSkam
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1

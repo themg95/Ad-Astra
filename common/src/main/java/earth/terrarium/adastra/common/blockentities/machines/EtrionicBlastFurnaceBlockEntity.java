@@ -48,7 +48,7 @@ public class EtrionicBlastFurnaceBlockEntity extends EnergyContainerMachineBlock
 
     private final BlastingRecipe[] recipes = new BlastingRecipe[4];
 
-    private Mode mode = Mode.BLASTING;
+    private Mode mode = Mode.ALLOYING;
     protected int cookTime;
     protected int cookTimeTotal;
 
@@ -111,7 +111,7 @@ public class EtrionicBlastFurnaceBlockEntity extends EnergyContainerMachineBlock
             isCooking = true;
             if (cookTime < cookTimeTotal) continue;
             for (int j = 0; j < 4; j++) {
-                craft(recipes[j], j, j + 1);
+                craft(recipes[j], j + 1);
             }
         }
         if (isCooking) {
@@ -132,14 +132,13 @@ public class EtrionicBlastFurnaceBlockEntity extends EnergyContainerMachineBlock
         return ItemUtils.canAddItem(this, recipe.getResultItem(level().registryAccess()), 5, 6, 7, 8);
     }
 
-    protected void craft(BlastingRecipe recipe, int recipeIndex, int slot) {
+    protected void craft(BlastingRecipe recipe, int slot) {
         if (recipe == null) return;
 
         getItem(slot).shrink(1);
         ItemUtils.addItem(this, recipe.getResultItem(level().registryAccess()), 5, 6, 7, 8);
 
         cookTime = 0;
-        if (getItem(slot).isEmpty()) clearRecipe(recipeIndex);
     }
 
     public void alloyingRecipeTick(WrappedBlockEnergyContainer energyStorage) {

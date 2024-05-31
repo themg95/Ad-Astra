@@ -12,7 +12,7 @@ public class JetSuitMaterial implements ArmorMaterial {
     public static final ArmorMaterial MATERIAL = new JetSuitMaterial();
 
     private static final int[] BASE_DURABILITY = new int[]{15, 17, 18, 13};
-    private static final int[] PROTECTION_VALUES = new int[]{4, 7, 9, 4};
+    private static final int[] PROTECTION_VALUES = new int[]{4, 9, 7, 4};
 
     @Override
     public int getDurabilityForType(ArmorItem.Type type) {

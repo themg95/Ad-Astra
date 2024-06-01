@@ -9,6 +9,7 @@ import com.mojang.datafixers.util.Pair;
 import com.mojang.math.Axis;
 import com.teamresourceful.resourcefullib.client.utils.RenderUtils;
 import earth.terrarium.adastra.AdAstra;
+import earth.terrarium.adastra.api.client.events.AdAstraClientEvents;
 import earth.terrarium.adastra.api.planets.Planet;
 import earth.terrarium.adastra.client.components.LabeledImageButton;
 import earth.terrarium.adastra.client.utils.DimensionRenderingUtils;
@@ -289,19 +290,9 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
             bufferBuilder.vertex(i - height, height, 0).color(0xff0f2559).endVertex();
         }
 
-        if (PlanetConstants.PROXIMA_CENTAURI.equals(selectedSolarSystem)) {
-            drawCircles(1, 1, 0xff008080, bufferBuilder);
-        } else if (PlanetConstants.SOLAR_SYSTEM.equals(selectedSolarSystem)) {
-            drawCircles(0, 4, 0xff24327b, bufferBuilder);
-        }
-
         tessellator.end();
 
-        if (PlanetConstants.PROXIMA_CENTAURI.equals(selectedSolarSystem)) {
-            renderProximaCentauri(graphics);
-        } else if (PlanetConstants.SOLAR_SYSTEM.equals(selectedSolarSystem)) {
-            renderSolarSystem(graphics);
-        }
+        AdAstraClientEvents.RenderSolarSystemEvent.fire(graphics, selectedSolarSystem, width, height);
         renderSelectionMenu(graphics);
     }
 
@@ -324,31 +315,7 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
         }
     }
 
-    public void renderSolarSystem(GuiGraphics graphics) {
-        graphics.blit(DimensionRenderingUtils.SUN, width / 2 - 8, height / 2 - 8, 0, 0, 16, 16, 16, 16);
-        float yRot = Util.getMillis() / 100f;
-        for (int i = 1; i < 5; i++) {
-            graphics.pose().pushPose();
-            graphics.pose().translate(width / 2f, height / 2f, 0);
-            graphics.pose().mulPose(Axis.ZP.rotationDegrees(yRot * (5 - i) / 2));
-            graphics.pose().translate(31 * i - 10, 0, 0);
-            graphics.blit(DimensionRenderingUtils.SOLAR_SYSTEM_TEXTURES.get(i - 1), 0, 0, 0, 0, 12, 12, 12, 12);
-            graphics.pose().popPose();
-        }
-    }
-
-    public void renderProximaCentauri(GuiGraphics graphics) {
-        graphics.blit(DimensionRenderingUtils.BLUE_SUN, width / 2 - 8, height / 2 - 8, 0, 0, 16, 16, 16, 16);
-        float yRot = Util.getMillis() / 100f % 360f;
-        graphics.pose().pushPose();
-        graphics.pose().translate(width / 2f, height / 2f, 0);
-        graphics.pose().mulPose(Axis.ZP.rotationDegrees(yRot));
-        graphics.pose().translate(53, 0, 0);
-        graphics.blit(DimensionRenderingUtils.GLACIO, 0, 0, 0, 0, 12, 12, 12, 12);
-        graphics.pose().popPose();
-    }
-
-    public void drawCircles(int start, int count, int color, BufferBuilder bufferBuilder) {
+    public static void drawCircles(int start, int count, int color, BufferBuilder bufferBuilder, int width, int height) {
         for (int i = 1 + start; i < count + start + 1; i++) {
             drawCircle(bufferBuilder, width / 2f, height / 2f, 30 * i, 75, color);
         }
@@ -436,5 +403,49 @@ public class PlanetsScreen extends AbstractContainerScreen<PlanetsMenu> {
         if (CadmusIntegration.cadmusLoaded()) {
             menu.getSortedPlanets().forEach(planet -> CadmusIntegration.removeClientListeners(planet.dimension()));
         }
+    }
+
+    static {
+        AdAstraClientEvents.RenderSolarSystemEvent.register((graphics, solarSystem, width, height) -> {
+            if (PlanetConstants.SOLAR_SYSTEM.equals(solarSystem)) {
+                Tesselator tessellator = Tesselator.getInstance();
+                BufferBuilder bufferBuilder = tessellator.getBuilder();
+                RenderSystem.setShader(GameRenderer::getPositionColorShader);
+                bufferBuilder.begin(VertexFormat.Mode.DEBUG_LINES, DefaultVertexFormat.POSITION_COLOR);
+                drawCircles(0, 4, 0xff24327b, bufferBuilder, width, height);
+                tessellator.end();
+
+                graphics.blit(DimensionRenderingUtils.SUN, width / 2 - 8, height / 2 - 8, 0, 0, 16, 16, 16, 16);
+                float rotation = Util.getMillis() / 100f;
+                for (int i = 1; i < 5; i++) {
+                    graphics.pose().pushPose();
+                    graphics.pose().translate(width / 2f, height / 2f, 0);
+                    graphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation * (5 - i) / 2));
+                    graphics.pose().translate(31 * i - 10, 0, 0);
+                    graphics.blit(DimensionRenderingUtils.SOLAR_SYSTEM_TEXTURES.get(i - 1), 0, 0, 0, 0, 12, 12, 12, 12);
+                    graphics.pose().popPose();
+                }
+            }
+        });
+
+        AdAstraClientEvents.RenderSolarSystemEvent.register((graphics, solarSystem, width, height) -> {
+            if (PlanetConstants.PROXIMA_CENTAURI.equals(solarSystem)) {
+                Tesselator tessellator = Tesselator.getInstance();
+                BufferBuilder bufferBuilder = tessellator.getBuilder();
+                RenderSystem.setShader(GameRenderer::getPositionColorShader);
+                bufferBuilder.begin(VertexFormat.Mode.DEBUG_LINES, DefaultVertexFormat.POSITION_COLOR);
+                drawCircles(1, 1, 0xff008080, bufferBuilder, width, height);
+                tessellator.end();
+
+                graphics.blit(DimensionRenderingUtils.BLUE_SUN, width / 2 - 8, height / 2 - 8, 0, 0, 16, 16, 16, 16);
+                float rotation = Util.getMillis() / 100f % 360f;
+                graphics.pose().pushPose();
+                graphics.pose().translate(width / 2f, height / 2f, 0);
+                graphics.pose().mulPose(Axis.ZP.rotationDegrees(rotation));
+                graphics.pose().translate(53, 0, 0);
+                graphics.blit(DimensionRenderingUtils.GLACIO, 0, 0, 0, 0, 12, 12, 12, 12);
+                graphics.pose().popPose();
+            }
+        });
     }
 }

@@ -48,11 +48,12 @@ public class StationLoader {
     private static JsonObject readLocalStations() {
         String stationsFile = System.getProperty("adastra.stations");
         if (stationsFile != null) {
+            String fileName = stationsFile.indexOf('/') == -1 ? stationsFile : stationsFile.substring(stationsFile.lastIndexOf('/') + 1);
             try {
-                String fileName = stationsFile.indexOf('/') == -1 ? stationsFile : stationsFile.substring(stationsFile.lastIndexOf('/') + 1);
                 AdAstra.LOGGER.info("Loading stations from {}", fileName);
                 return GsonHelpers.parseJson(Files.readString(Path.of(stationsFile))).orElse(null);
-            } catch (Exception ignored) {
+            } catch (Exception exception) {
+                AdAstra.LOGGER.error("Failed loading stations from {}", fileName, exception);
                 return null;
             }
         }

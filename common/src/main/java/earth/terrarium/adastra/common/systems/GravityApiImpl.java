@@ -35,8 +35,8 @@ public class GravityApiImpl implements GravityApi {
 
     @Override
     public float getGravity(Level level, BlockPos pos) {
-        if (level.isClientSide()) return getGravity(level);
-        return PlanetHandler.getGravity((ServerLevel) level, pos);
+        if (!(level instanceof ServerLevel serverLevel)) return getGravity(level);
+        return PlanetHandler.getGravity(serverLevel, pos);
     }
 
     @Override
@@ -48,14 +48,14 @@ public class GravityApiImpl implements GravityApi {
 
     @Override
     public void setGravity(Level level, BlockPos pos, float gravity) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setGravity((ServerLevel) level, pos, gravity);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setGravity(serverLevel, pos, gravity);
     }
 
     @Override
     public void setGravity(Level level, Collection<BlockPos> positions, float gravity) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setGravity((ServerLevel) level, positions, gravity);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setGravity(serverLevel, positions, gravity);
     }
 
     @Override

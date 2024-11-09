@@ -60,9 +60,9 @@ public abstract class BasicEntityBlock extends BaseEntityBlock {
                 tickable.tick(entityLevel, time, blockState, pos);
                 if (level.isClientSide()) {
                     tickable.clientTick((ClientLevel) level, time, state, pos);
-                } else {
-                    tickable.serverTick((ServerLevel) level, time, state, pos);
-                    tickable.internalServerTick((ServerLevel) level, time, state, pos);
+                } else if (level instanceof ServerLevel serverLevel) {
+                    tickable.serverTick(serverLevel, time, state, pos);
+                    tickable.internalServerTick(serverLevel, time, state, pos);
                 }
                 if (!tickable.isInitialized()) tickable.firstTick(level, pos, state);
             }

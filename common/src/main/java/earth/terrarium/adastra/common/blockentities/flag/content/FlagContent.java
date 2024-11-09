@@ -29,7 +29,7 @@ public interface FlagContent {
         String type = tag.getString("type");
         Tag content = tag.get("content");
         if (content == null) return null;
-        return switch (type) {
+        return switch (type.intern()) {
             case ImageContent.TYPE -> ImageContent.of(content.getAsString());
             case UrlContent.TYPE -> UrlContent.of(content.getAsString());
             default -> null;

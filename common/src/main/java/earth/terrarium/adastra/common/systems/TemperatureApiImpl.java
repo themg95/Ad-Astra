@@ -37,8 +37,8 @@ public class TemperatureApiImpl implements TemperatureApi {
 
     @Override
     public short getTemperature(Level level, BlockPos pos) {
-        if (level.isClientSide()) return getTemperature(level);
-        return PlanetHandler.getTemperature((ServerLevel) level, pos);
+        if (!(level instanceof ServerLevel serverLevel)) return getTemperature(level);
+        return PlanetHandler.getTemperature(serverLevel, pos);
     }
 
     @Override
@@ -48,14 +48,14 @@ public class TemperatureApiImpl implements TemperatureApi {
 
     @Override
     public void setTemperature(Level level, BlockPos pos, short temperature) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setTemperature((ServerLevel) level, pos, temperature);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setTemperature(serverLevel, pos, temperature);
     }
 
     @Override
     public void setTemperature(Level level, Collection<BlockPos> positions, short temperature) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setTemperature((ServerLevel) level, positions, temperature);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setTemperature(serverLevel, positions, temperature);
     }
 
     @Override

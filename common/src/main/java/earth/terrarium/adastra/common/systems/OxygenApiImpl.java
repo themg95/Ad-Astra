@@ -33,8 +33,8 @@ public class OxygenApiImpl implements OxygenApi {
 
     @Override
     public boolean hasOxygen(Level level, BlockPos pos) {
-        if (level.isClientSide()) return hasOxygen(level);
-        return PlanetHandler.hasOxygen((ServerLevel) level, pos);
+        if (!(level instanceof ServerLevel serverLevel)) return hasOxygen(level);
+        return PlanetHandler.hasOxygen(serverLevel, pos);
     }
 
     @Override
@@ -45,14 +45,14 @@ public class OxygenApiImpl implements OxygenApi {
 
     @Override
     public void setOxygen(Level level, BlockPos pos, boolean oxygen) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setOxygen((ServerLevel) level, pos, oxygen);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setOxygen(serverLevel, pos, oxygen);
     }
 
     @Override
     public void setOxygen(Level level, Collection<BlockPos> positions, boolean oxygen) {
-        if (level.isClientSide()) return;
-        PlanetHandler.setOxygen((ServerLevel) level, positions, oxygen);
+        if (!(level instanceof ServerLevel serverLevel)) return;
+        PlanetHandler.setOxygen(serverLevel, positions, oxygen);
     }
 
     @Override

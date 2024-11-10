@@ -19,3 +19,5 @@
 - Added Dutch translations (#525) - marlester-dev
 - Added Chinese translations (#523) - whyvo1
 - Added Japanese translations - てよくま
+- Fix crashes when a mod specifies levels as !isClientSide but is not a ServerLevel
+- Log when a local radio station file cant be read.

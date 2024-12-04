@@ -17,6 +17,7 @@ import earth.terrarium.adastra.common.entities.AirVortex;
 import earth.terrarium.adastra.common.menus.machines.OxygenDistributorMenu;
 import earth.terrarium.adastra.common.registry.ModSoundEvents;
 import earth.terrarium.adastra.common.utils.FluidUtils;
+import earth.terrarium.adastra.common.utils.KeybindManager;
 import earth.terrarium.adastra.common.utils.TransferUtils;
 import earth.terrarium.adastra.common.utils.floodfill.FloodFill3D;
 import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
@@ -267,7 +268,7 @@ public class OxygenDistributorBlockEntity extends OxygenLoaderBlockEntity {
     }
 
     private long calculateEnergyPerTick() {
-        return Math.max(1, lastDistributedBlocks.size() / 50);
+        return Math.min(MachineConfig.deshTierMaxEnergyInOut, Math.max(1, lastDistributedBlocks.size() / 50));
     }
 
     private long calculateFluidPerTick() {

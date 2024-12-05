@@ -268,11 +268,11 @@ public class OxygenDistributorBlockEntity extends OxygenLoaderBlockEntity {
     }
 
     private long calculateEnergyPerTick() {
-        return Math.min(MachineConfig.deshTierMaxEnergyInOut, Math.max(1, lastDistributedBlocks.size() / 50));
+        return Math.min(MachineConfig.deshTierMaxEnergyInOut - 30 /* for some reason it adds an exrra 30? idk */, Math.max(1, lastDistributedBlocks.size() / 50));
     }
 
     private long calculateFluidPerTick() {
-        return FluidConstants.fromMillibuckets(Math.max(1, lastDistributedBlocks.size() / 1500));
+        return FluidConstants.fromMillibuckets(Math.min(6000 / 1500, Math.max(1, lastDistributedBlocks.size() / 1500)));
     }
 
     @Override
